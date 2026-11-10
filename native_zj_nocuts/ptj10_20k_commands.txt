@@ -1,0 +1,1 @@
+survey ptj10_20k --points=20000 --iterations=8 --accuracy=0.002

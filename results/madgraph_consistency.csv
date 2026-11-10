@@ -1,0 +1,7 @@
+scenario,etaj,ptj,native_pb,native_error_pb,partonic_pb,partonic_error_pb,note
+no cuts,-1,0,1484700,43311,,,native grid-dependent; partonic no finite result
+pt only,-1,20,11913,10.866,11561.17,1.1307,partonic coarse 50-point grid
+both cuts (CM),2.5,20,9142.3,6.7709,11457.05,,partonic CM coarse; wrong frame for the lab cut
+both cuts (lab-corrected),2.5,20,9142.3,6.7709,8951.23,,partonic no-eta x native lab acceptance; 2.1% vs native
+both cuts (CM fine),2.5,20,9142.3,6.7709,13761.97,,partonic CM fine grid; not the lab-frame total
+

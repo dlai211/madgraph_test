@@ -1,0 +1,49 @@
+LHAPDF 6.5.6 loading C:/Users/laiji/test/lhapdf-local/share/LHAPDF/NNPDF23_lo_as_0130_qed/NNPDF23_lo_as_0130_qed_0000.dat
+NNPDF23_lo_as_0130_qed PDF set, member #0, version 1; LHAPDF ID = 247000
+C:\Users\laiji\test\madgraph_test\verification\check_luminosity.py:48: IntegrationWarning: The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+  val, err = quad(integrand, -ymax, ymax, epsabs=1e-12, epsrel=1e-10, limit=200)
+C:\Users\laiji\test\madgraph_test\verification\check_luminosity.py:48: IntegrationWarning: The maximum number of subdivisions (200) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, err = quad(integrand, -ymax, ymax, epsabs=1e-12, epsrel=1e-10, limit=200)
+C:\Users\laiji\test\madgraph_test\verification\check_luminosity.py:104: IntegrationWarning: The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+  uv, _ = quad(integrand, tau, 1.0, epsabs=1e-12, epsrel=1e-10, limit=300)
+nodes   no-eta total (pb)   lab total (pb)
+   10         11880.3094        9120.9900
+   20         11876.8712        9118.3817
+   40         11877.0541        9118.5118
+   80         11876.9576        9118.4397
+  160         11876.9564        9118.4389
+  200         11876.9572        9118.4395
+  320         11876.9574        9118.4396
+  640         11876.9574        9118.4396
+
+adaptive quad vs 200-node Gauss-Legendre
+energy channel   L_quad              L_gl200             rel.diff
+  114.0 gu_zu  3.329618306946e+00 3.329617992194e+00   9.45e-08
+  114.0 uux_zg 1.470274826656e-01 1.470274778304e-01   3.29e-08
+  150.0 gu_zu  1.773776722371e+00 1.773776578915e+00   8.09e-08
+  150.0 uux_zg 8.277558432068e-02 8.277557559819e-02   1.05e-07
+  200.0 gu_zu  9.028415625097e-01 9.028418494116e-01   3.18e-07
+  200.0 uux_zg 4.486738586745e-02 4.486739558548e-02   2.17e-07
+  300.0 gu_zu  3.376065031919e-01 3.376064959680e-01   2.14e-08
+  300.0 uux_zg 1.847167882604e-02 1.847167860416e-02   1.20e-08
+  500.0 gu_zu  9.118081607967e-02 9.118079337140e-02   2.49e-07
+  500.0 uux_zg 5.668840380059e-03 5.668839304458e-03   1.90e-07
+ 1000.0 gu_zu  1.273208074230e-02 1.273208485505e-02   3.23e-07
+ 1000.0 uux_zg 9.263679633626e-04 9.263682232478e-04   2.81e-07
+ 2000.0 gu_zu  1.180335317257e-03 1.180335117932e-03   1.69e-07
+ 2000.0 uux_zg 9.412542231914e-05 9.412540576672e-05   1.76e-07
+
+exact u-integral check (gu_zu)
+    200.0 GeV  u=9.028415621e-01  y=9.028415624e-01  ratio=1.00000000
+   1000.0 GeV  u=1.273208073e-02  y=1.273208073e-02  ratio=1.00000000
+Thanks for using LHAPDF 6.5.6. Please make sure to cite the paper:
+  Eur.Phys.J. C75 (2015) 3, 132  (http://arxiv.org/abs/1412.7420)

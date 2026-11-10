@@ -1,0 +1,13 @@
+LHAPDF 6.5.6 loading C:/Users/laiji/test/lhapdf-local/share/LHAPDF/NNPDF23_lo_as_0130_qed/NNPDF23_lo_as_0130_qed_0000.dat
+NNPDF23_lo_as_0130_qed PDF set, member #0, version 1; LHAPDF ID = 247000
+gu_zu       2984.05 +/- 0.7233 pb
+gd_zd       2557.83 +/- 0.5721 pb
+gux_zux      971.61 +/- 0.2141 pb
+gdx_zdx     1398.63 +/- 0.3088 pb
+uux_zg      1855.69 +/- 0.3965 pb
+ddx_zg      1793.36 +/- 0.3601 pb
+TOTAL    11561.17 +/- 1.1307 pb
+PREVIOUS WITH-CUTS TOTAL 13761.97 pb
+wrote plots and total_integral.csv/json
+Thanks for using LHAPDF 6.5.6. Please make sure to cite the paper:
+  Eur.Phys.J. C75 (2015) 3, 132  (http://arxiv.org/abs/1412.7420)

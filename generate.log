@@ -1,0 +1,340 @@
+For tab completion and history, install module readline.
+************************************************************
+*                                                          *
+*                     W E L C O M E to                     *
+*              M A D G R A P H 5 _ a M C @ N L O           *
+*                                                          *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.6.7                 2026-01-05         *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*              http://madgraph.phys.ucl.ac.be/             *
+*                            and                           *
+*            http://amcatnlo.web.cern.ch/amcatnlo/         *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*           Type 'tutorial' to learn how MG5 works         *
+*    Type 'tutorial aMCatNLO' to learn how aMC@NLO works   *
+*    Type 'tutorial MadLoop' to learn how MadLoop works    *
+*                                                          *
+************************************************************
+load MG5 configuration from ..\MG5_aMC_v3_6_7\input\mg5_configuration.txt 
+fastjet-config does not seem to correspond to a valid fastjet-config executable (v3+). We will use fjcore instead.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/fastjet-config (including fastjet-config).
+ MG5_aMC> set fastjet /PATH/TO/fastjet-config
+
+eMELA-config does not seem to correspond to a valid eMELA-config executable.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/eMELA-config (including eMELA-config).
+ MG5_aMC> set eMELA /PATH/TO/eMELA-config
+
+lhapdf-config does not seem to correspond to a valid lhapdf-config executable. 
+Please set the 'lhapdf' variable to the (absolute) /PATH/TO/lhapdf-config (including lhapdf-config).
+Note that you can still compile and run aMC@NLO with the built-in PDFs
+ MG5_aMC> set lhapdf /PATH/TO/lhapdf-config
+
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+import C:\Users\laiji\test\madgraph_test\generate_partonic.mg5
+The import format was not given, so we guess it as command
+import model sm
+INFO: Restrict model sm with file ..\MG5_aMC_v3_6_7\models\sm\restrict_default.dat . 
+INFO: Run "set stdout_level DEBUG" before import for more information. 
+INFO: Change particles name to pass to MG5 convention 
+Defined multiparticle p = g u c d s u~ c~ d~ s~
+Defined multiparticle j = g u c d s u~ c~ d~ s~
+Defined multiparticle l+ = e+ mu+
+Defined multiparticle l- = e- mu-
+Defined multiparticle vl = ve vm vt
+Defined multiparticle vl~ = ve~ vm~ vt~
+Defined multiparticle all = g u c d s u~ c~ d~ s~ a ve vm vt e- mu- ve~ vm~ vt~ e+ mu+ t b t~ b~ z w+ h w- ta- ta+
+generate g u > z u
+INFO: Checking for minimal orders which gives processes. 
+INFO: Please specify coupling orders to bypass this step. 
+INFO: Trying coupling order WEIGHTED<=3: WEIGTHED IS QCD+2*QED 
+INFO: Trying process: g u > z u WEIGHTED<=3 @1  
+INFO: Process has 2 diagrams 
+1 processes with 2 diagrams generated in 0.007 s
+Total: 1 processes with 2 diagrams
+add process g d > z d
+INFO: Checking for minimal orders which gives processes. 
+INFO: Please specify coupling orders to bypass this step. 
+INFO: Trying coupling order WEIGHTED<=3: WEIGTHED IS QCD+2*QED 
+INFO: Trying process: g d > z d WEIGHTED<=3 @2  
+INFO: Process has 2 diagrams 
+1 processes with 2 diagrams generated in 0.004 s
+Total: 2 processes with 4 diagrams
+add process g u~ > z u~
+INFO: Checking for minimal orders which gives processes. 
+INFO: Please specify coupling orders to bypass this step. 
+INFO: Trying coupling order WEIGHTED<=3: WEIGTHED IS QCD+2*QED 
+INFO: Trying process: g u~ > z u~ WEIGHTED<=3 @3  
+INFO: Process has 2 diagrams 
+1 processes with 2 diagrams generated in 0.004 s
+Total: 3 processes with 6 diagrams
+add process g d~ > z d~
+INFO: Checking for minimal orders which gives processes. 
+INFO: Please specify coupling orders to bypass this step. 
+INFO: Trying coupling order WEIGHTED<=3: WEIGTHED IS QCD+2*QED 
+INFO: Trying process: g d~ > z d~ WEIGHTED<=3 @4  
+INFO: Process has 2 diagrams 
+1 processes with 2 diagrams generated in 0.004 s
+Total: 4 processes with 8 diagrams
+add process u u~ > z g
+INFO: Checking for minimal orders which gives processes. 
+INFO: Please specify coupling orders to bypass this step. 
+INFO: Trying coupling order WEIGHTED<=3: WEIGTHED IS QCD+2*QED 
+INFO: Trying process: u u~ > z g WEIGHTED<=3 @5  
+INFO: Process has 2 diagrams 
+1 processes with 2 diagrams generated in 0.003 s
+Total: 5 processes with 10 diagrams
+add process d d~ > z g
+INFO: Checking for minimal orders which gives processes. 
+INFO: Please specify coupling orders to bypass this step. 
+INFO: Trying coupling order WEIGHTED<=3: WEIGTHED IS QCD+2*QED 
+INFO: Trying process: d d~ > z g WEIGHTED<=3 @6  
+INFO: Process has 2 diagrams 
+1 processes with 2 diagrams generated in 0.002 s
+Total: 6 processes with 12 diagrams
+output partonic_zj
+INFO: initialize a new directory: partonic_zj 
+INFO: remove old information in partonic_zj 
+INFO: Organizing processes into subprocess groups 
+INFO: Generating Helas calls for process: g u > z u WEIGHTED<=3 @1 
+INFO: Processing color information for process: g u > z u @1 
+INFO: Generating Helas calls for process: g d > z d WEIGHTED<=3 @2 
+INFO: Processing color information for process: g d > z d @2 
+INFO: Generating Helas calls for process: g u~ > z u~ WEIGHTED<=3 @3 
+INFO: Processing color information for process: g u~ > z u~ @3 
+INFO: Generating Helas calls for process: g d~ > z d~ WEIGHTED<=3 @4 
+INFO: Processing color information for process: g d~ > z d~ @4 
+INFO: Generating Helas calls for process: u u~ > z g WEIGHTED<=3 @5 
+INFO: Processing color information for process: u u~ > z g @5 
+INFO: Generating Helas calls for process: d d~ > z g WEIGHTED<=3 @6 
+INFO: Processing color information for process: d d~ > z g @6 
+INFO: Creating files in directory P1_gq_zq 
+INFO: Generating Feynman diagrams for Process: g u > z u WEIGHTED<=3 @1 
+INFO: Finding symmetric diagrams for subprocess group gq_zq 
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\addmothers.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\cluster.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\cluster.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\coupl.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\coupl.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\cuts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\cuts.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\genps.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\genps.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\idenparts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\initcluster.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\makefile at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\message.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\myamp.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\reweight.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\run.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\run.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\maxconfigs.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\maxconfigs.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\maxparticles.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\maxparticles.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\run_config.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\run_config.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\lhe_event_infos.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\lhe_event_infos.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\setcuts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\setscales.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\sudakov.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\symmetry.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\unwgt.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq\..\dummy_fct.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P1_gq_zq [0m
+INFO: Creating files in directory P2_gq_zq 
+INFO: Generating Feynman diagrams for Process: g d > z d WEIGHTED<=3 @2 
+INFO: Finding symmetric diagrams for subprocess group gq_zq 
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\addmothers.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\cluster.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\cluster.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\coupl.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\coupl.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\cuts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\cuts.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\genps.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\genps.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\idenparts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\initcluster.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\makefile at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\message.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\myamp.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\reweight.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\run.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\run.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\maxconfigs.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\maxconfigs.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\maxparticles.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\maxparticles.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\run_config.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\run_config.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\lhe_event_infos.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\lhe_event_infos.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\setcuts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\setscales.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\sudakov.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\symmetry.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\unwgt.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq\..\dummy_fct.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P2_gq_zq [0m
+INFO: Creating files in directory P3_gq_zq 
+INFO: Generating Feynman diagrams for Process: g u~ > z u~ WEIGHTED<=3 @3 
+INFO: Finding symmetric diagrams for subprocess group gq_zq 
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\addmothers.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\cluster.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\cluster.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\coupl.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\coupl.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\cuts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\cuts.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\genps.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\genps.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\idenparts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\initcluster.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\makefile at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\message.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\myamp.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\reweight.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\run.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\run.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\maxconfigs.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\maxconfigs.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\maxparticles.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\maxparticles.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\run_config.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\run_config.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\lhe_event_infos.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\lhe_event_infos.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\setcuts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\setscales.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\sudakov.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\symmetry.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\unwgt.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq\..\dummy_fct.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P3_gq_zq [0m
+INFO: Creating files in directory P4_gq_zq 
+INFO: Generating Feynman diagrams for Process: g d~ > z d~ WEIGHTED<=3 @4 
+INFO: Finding symmetric diagrams for subprocess group gq_zq 
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\addmothers.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\cluster.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\cluster.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\coupl.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\coupl.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\cuts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\cuts.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\genps.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\genps.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\idenparts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\initcluster.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\makefile at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\message.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\myamp.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\reweight.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\run.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\run.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\maxconfigs.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\maxconfigs.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\maxparticles.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\maxparticles.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\run_config.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\run_config.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\lhe_event_infos.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\lhe_event_infos.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\setcuts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\setscales.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\sudakov.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\symmetry.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\unwgt.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq\..\dummy_fct.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P4_gq_zq [0m
+INFO: Creating files in directory P5_qq_zg 
+INFO: Generating Feynman diagrams for Process: u u~ > z g WEIGHTED<=3 @5 
+INFO: Finding symmetric diagrams for subprocess group qq_zg 
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\addmothers.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\cluster.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\cluster.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\coupl.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\coupl.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\cuts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\cuts.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\genps.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\genps.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\idenparts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\initcluster.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\makefile at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\message.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\myamp.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\reweight.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\run.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\run.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\maxconfigs.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\maxconfigs.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\maxparticles.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\maxparticles.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\run_config.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\run_config.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\lhe_event_infos.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\lhe_event_infos.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\setcuts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\setscales.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\sudakov.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\symmetry.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\unwgt.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg\..\dummy_fct.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P5_qq_zg [0m
+INFO: Creating files in directory P6_qq_zg 
+INFO: Generating Feynman diagrams for Process: d d~ > z g WEIGHTED<=3 @6 
+INFO: Finding symmetric diagrams for subprocess group qq_zg 
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\addmothers.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\cluster.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\cluster.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\coupl.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\coupl.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\cuts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\cuts.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\genps.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\genps.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\idenparts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\initcluster.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\makefile at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\message.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\myamp.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\reweight.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\run.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\run.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\maxconfigs.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\maxconfigs.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\maxparticles.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\maxparticles.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\run_config.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\run_config.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\lhe_event_infos.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not copy C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\lhe_event_infos.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\setcuts.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\setscales.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\sudakov.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\symmetry.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\unwgt.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg\..\dummy_fct.f at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses\P6_qq_zg [0m
+Generated helas calls for 6 subprocesses (12 diagrams) in 0.024 s
+Wrote files for 48 helas calls in 2.209 s
+ALOHA: aloha starts to compute helicity amplitudes
+ALOHA: aloha creates 4 routines in  1.930 s
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\Source\MODEL\coupl.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\Source [0m
+[1;34mWARNING: Could not link C:\Users\laiji\test\madgraph_test\partonic_zj\Source\MODEL\coupl.inc at position: C:\Users\laiji\test\madgraph_test\partonic_zj\SubProcesses [0m
+save configuration file to C:\Users\laiji\test\madgraph_test\partonic_zj\Cards\me5_configuration.txt
+INFO: Use Fortran compiler gfortran 
+INFO: Use c++ compiler g++ 
+INFO: Generate web pages 
+Output to directory C:\Users\laiji\test\madgraph_test\partonic_zj done.
+Type "launch" to generate events from this process, or see
+C:\Users\laiji\test\madgraph_test\partonic_zj/README
+Run "open index.html" to see more information about this process.
+quit

@@ -1,0 +1,56 @@
+For tab completion and history, install module readline.
+************************************************************
+*                                                          *
+*                      W E L C O M E to                    *
+*             M A D G R A P H 5 _ a M C @ N L O            *
+*                      M A D E V E N T                     *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.6.7                                    *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************
+INFO: load configuration from C:\Users\laiji\test\madgraph_test\native_zj_nocuts\Cards\me5_configuration.txt  
+INFO: load configuration from C:\Users\laiji\test\MG5_aMC_v3_6_7\input\mg5_configuration.txt  
+INFO: load configuration from C:\Users\laiji\test\madgraph_test\native_zj_nocuts\Cards\me5_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+import command ptj5_check_commands.txt
+survey ptj5_check --points=20000 --iterations=8 --accuracy=0.002
+INFO: compile directory 
+compile Source Directory
+Using random number seed offset = 45
+INFO: Running Survey 
+Creating Jobs
+Working on SubProcesses
+INFO: Compiling for process 1/2. 
+INFO:     P1_gq_zq  
+INFO: Compiling for process 2/2. 
+INFO:     P1_qq_zg  
+INFO:     P1_gq_zq  
+INFO:     P1_qq_zg  
+INFO:  Idle: 1,  Running: 1,  Completed: 0 [ current time: 02h24 ] 
+INFO:  Idle: 0,  Running: 1,  Completed: 1 [  9.5s  ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 2 [  26.5s  ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 2 [  26.5s  ] 
+sum of cpu time of last step: 26 seconds
+  === Results Summary for run: ptj5_check tag: tag_1 ===
+
+     Cross-section :   4.012e+04 +- 45.94 pb
+     Nb of events :  0
+ 
+INFO: End survey 
+quit
+INFO:  
+launch in debug mode

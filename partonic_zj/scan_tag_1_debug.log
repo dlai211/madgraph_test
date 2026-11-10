@@ -1,0 +1,113 @@
+#************************************************************
+#*               MadGraph5_aMC@NLO/MadEvent                 *
+#*                                                          *
+#*                *                       *                 *
+#*                  *        * *        *                   *
+#*                    * * * * 5 * * * *                     *
+#*                  *        * *        *                   *
+#*                *                       *                 *
+#*                                                          *
+#*                                                          *
+#*         VERSION 3.6.7                                    *
+#*                                                          *
+#*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+#*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+#*                                                          *
+#************************************************************
+#*                                                          *
+#*               Command File for MadEvent                  *
+#*                                                          *
+#*     run as ./bin/madevent.py filename                    *
+#*                                                          *
+#************************************************************
+survey scan --points=20000 --iterations=8 --accuracy=0.002
+Traceback (most recent call last):
+  File "C:\Users\laiji\test\madgraph_test\partonic_zj\bin\internal\extended_cmd.py", line 1575, in onecmd
+    return self.onecmd_orig(line, **opt)
+  File "C:\Users\laiji\test\madgraph_test\partonic_zj\bin\internal\extended_cmd.py", line 1524, in onecmd_orig
+    return func(arg, **opt)
+  File "C:\Users\laiji\test\madgraph_test\partonic_zj\bin\internal\extended_cmd.py", line 1208, in do_import
+    self.import_command_file(args[1])
+  File "C:\Users\laiji\test\madgraph_test\partonic_zj\bin\internal\extended_cmd.py", line 1723, in import_command_file
+    self.exec_cmd(line, precmd=True)
+  File "C:\Users\laiji\test\madgraph_test\partonic_zj\bin\internal\extended_cmd.py", line 1604, in exec_cmd
+    stop = Cmd.onecmd_orig(current_interface, line, **opt)
+  File "C:\Users\laiji\test\madgraph_test\partonic_zj\bin\internal\extended_cmd.py", line 1524, in onecmd_orig
+    return func(arg, **opt)
+  File "C:\Users\laiji\test\madgraph_test\partonic_zj\bin\internal\madevent_interface.py", line 3432, in do_survey
+    self.configure_directory()
+  File "C:\Users\laiji\test\madgraph_test\partonic_zj\bin\internal\madevent_interface.py", line 6106, in configure_directory
+    self.compile(arg=[name], cwd=os.path.join(self.me_dir, 'Source'))
+  File "C:\Users\laiji\test\madgraph_test\partonic_zj\bin\internal\extended_cmd.py", line 1670, in compile
+    return misc.compile(nb_core=self.options['nb_core'], *args, **opts)
+  File "C:\Users\laiji\test\madgraph_test\partonic_zj\bin\internal\misc.py", line 614, in compile
+    raise MadGraph5Error(error_text)
+internal.MadGraph5Error: A compilation Error occurs when trying to compile C:\Users\laiji\test\madgraph_test\partonic_zj\Source.
+The compilation fails with the following output message:
+    gfortran -w -fPIC -O -ffixed-line-length-132  -c -o setrun.o setrun.f
+    rm -f ../lib/libgeneric.a 2>/dev/null
+    ar cru  ../lib/libgeneric.a  alfas_functions.o transpole.o invarients.o hfill.o pawgraphs.o ran1.o rw_events.o rw_routines.o kin_functions.o open_file.o basecode.o setrun.o run_printout.o dgauss.o readgrid.o getissud.o
+    C:\msys64\mingw64\bin\ar.exe: `u' modifier ignored since `D' is the default (see `U')
+    ranlib  ../lib/libgeneric.a
+    rm -f alfas_functions_lhapdf.o 2>/dev/null
+    ../bin/madevent treatcards param
+    madgraph requires the six module. The easiest way to install it is to run "pip install six --user"
+    in case of problem with pip, you can download the file at https://pypi.org/project/six/ . It has a single python file that you just need to put inside a directory of your $PYTHONPATH environment variable.
+    make: *** [makefile:63: param_card.inc] Error 1
+    
+Please try to fix this compilations issue and retry.
+Help might be found at https://answers.launchpad.net/mg5amcnlo.
+If you think that this is a bug, you can report this at https://bugs.launchpad.net/mg5amcnlo
+                              Run Options    
+                              -----------    
+               stdout_level 	:	None
+
+                         MadEvent Options    
+                         ----------------    
+     automatic_html_opening 	:	False (user set)
+        notification_center 	:	True
+                   run_mode 	:	2
+              cluster_queue 	:	None
+               cluster_time 	:	None
+               cluster_size 	:	100
+             cluster_memory 	:	None
+                    nb_core 	:	1 (user set)
+          cluster_temp_path 	:	None
+
+                      Configuration Options    
+                      ---------------------    
+               pythia8_path 	:	None (user set)
+                  hwpp_path 	:	None (user set)
+                thepeg_path 	:	None (user set)
+                 hepmc_path 	:	None (user set)
+           madanalysis_path 	:	None (user set)
+          madanalysis5_path 	:	None (user set)
+            pythia-pgs_path 	:	None (user set)
+                    td_path 	:	None (user set)
+               delphes_path 	:	None (user set)
+        exrootanalysis_path 	:	None (user set)
+               syscalc_path 	:	None (user set)
+                 rivet_path 	:	None
+                  yoda_path 	:	None
+                      dmtcp 	:	None
+                     lhapdf 	:	lhapdf-config
+                 lhapdf_py2 	:	None
+                 lhapdf_py3 	:	None
+                    timeout 	:	60
+              f2py_compiler 	:	None
+          f2py_compiler_py2 	:	None
+          f2py_compiler_py3 	:	None
+                web_browser 	:	None
+                 eps_viewer 	:	None
+                text_editor 	:	None
+                   use_pigz 	:	None
+           fortran_compiler 	:	None
+               cpp_compiler 	:	None
+                auto_update 	:	0 (user set)
+              checkpointing 	:	False
+               cluster_type 	:	condor
+         cluster_vacatetime 	:	120
+      cluster_status_update 	:	(600, 30)
+           cluster_nb_retry 	:	1
+         cluster_local_path 	:	None
+         cluster_retry_wait 	:	300

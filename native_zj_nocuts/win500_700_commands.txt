@@ -1,0 +1,1 @@
+survey win500_700 --points=20000 --iterations=8 --accuracy=0.002

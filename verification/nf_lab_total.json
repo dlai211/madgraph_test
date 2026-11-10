@@ -1,0 +1,78 @@
+{
+  "nf_cm_pb": 11752.441437206488,
+  "nf_lab_cm_cut_pb": 9041.841169556717,
+  "cm_fail_lab_pb": 88.70780475878055,
+  "nf_lab_full_114_2000_pb": 9130.548974315498,
+  "nf_lab_error_pb": 0.7693822532154367,
+  "acceptance_stat_error_pb": 0.7693822532154367,
+  "tail_model_error_estimate_pb": 6.666513331569959,
+  "tail_old_sample_pb": 82.53,
+  "tail_clean_sample_pb": 88.71,
+  "tail_event_sample_spread_pb": 6.18,
+  "nf_acceptance_model_error_pb": 5.877196760211866,
+  "threshold_pb": 24.589,
+  "nf_lab_total_pb": 9155.137974315498,
+  "nf_lab_total_error_pb": 8.920526375153415,
+  "exact_lab_pb": 9142.25,
+  "exact_lab_single_pb": 9137.9,
+  "exact_lab_channel_correction_pb": 4.35,
+  "exact_lab_channel_error_pb": 4.24,
+  "native_lab_pb": 9142.3,
+  "native_lab_error_pb": 6.8,
+  "channels": [
+    {
+      "channel": "gu_zu",
+      "cm_pb": 3196.9198125234693,
+      "lab_cm_cut_pb": 2383.175018349305,
+      "cm_fail_lab_pb": 39.953354013820814,
+      "lab_full_pb": 2423.128372363126,
+      "error_pb": 0.4896380774037877,
+      "f_mean": 0.7708883995125158
+    },
+    {
+      "channel": "gd_zd",
+      "cm_pb": 2762.4336202601926,
+      "lab_cm_cut_pb": 2200.091893773542,
+      "cm_fail_lab_pb": 24.007595313846707,
+      "lab_full_pb": 2224.0994890873885,
+      "error_pb": 0.3471842591902131,
+      "f_mean": 0.8108962172552407
+    },
+    {
+      "channel": "gux_zux",
+      "cm_pb": 999.0551351244596,
+      "lab_cm_cut_pb": 853.5947607144103,
+      "cm_fail_lab_pb": 1.653433036585675,
+      "lab_full_pb": 855.2481937509959,
+      "error_pb": 0.12530197125287837,
+      "f_mean": 0.8535540926699507
+    },
+    {
+      "channel": "gdx_zdx",
+      "cm_pb": 1476.7930923914366,
+      "lab_cm_cut_pb": 1262.552595418586,
+      "cm_fail_lab_pb": 8.285213178358642,
+      "lab_full_pb": 1270.8378085969446,
+      "error_pb": 0.18374898512232596,
+      "f_mean": 0.855553225683984
+    },
+    {
+      "channel": "uux_zg",
+      "cm_pb": 1683.1225360684725,
+      "lab_cm_cut_pb": 1124.8364335304664,
+      "cm_fail_lab_pb": 8.207031440290843,
+      "lab_full_pb": 1133.0434649707572,
+      "error_pb": 0.30398583395336337,
+      "f_mean": 0.6862915879395314
+    },
+    {
+      "channel": "ddx_zg",
+      "cm_pb": 1634.1172408384552,
+      "lab_cm_cut_pb": 1217.5904677704086,
+      "cm_fail_lab_pb": 6.6011777758778605,
+      "lab_full_pb": 1224.1916455462865,
+      "error_pb": 0.2996581954695449,
+      "f_mean": 0.7478961529293042
+    }
+  ]
+}

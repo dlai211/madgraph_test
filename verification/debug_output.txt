@@ -1,0 +1,137 @@
+LHAPDF 6.5.6 loading C:/Users/laiji/test/lhapdf-local/share/LHAPDF/NNPDF23_lo_as_0130_qed/NNPDF23_lo_as_0130_qed_0000.dat
+NNPDF23_lo_as_0130_qed PDF set, member #0, version 1; LHAPDF ID = 247000
+==============================================================================
+STEP 1 - LHE headers, scales, couplings
+==============================================================================
+
+param_card:
+  MZ     native=  9.118800e+01  partonic=  9.118800e+01
+  WZ     native=  2.441404e+00  partonic=  2.441404e+00
+  aEWM1  native=  1.325070e+02  partonic=  1.325070e+02
+  Gf     native=  1.166390e-05  partonic=  1.166390e-05
+  aS     native=  1.180000e-01  partonic=  1.300000e-01
+
+run_card:
+  lpp1           native=           1  partonic=           0
+  lpp2           native=           1  partonic=           0
+  ebeam1         native=      6500.0  partonic=        1000
+  ebeam2         native=      6500.0  partonic=        1000
+  pdlabel1       native=     nn23lo1  partonic=        none
+  pdlabel2       native=     nn23lo1  partonic=        none
+  lhaid          native=      230000  partonic=      230000
+  scale          native=      91.188  partonic=      91.188
+  dsqrt_q2fact1  native=      91.188  partonic=      91.188
+  dsqrt_q2fact2  native=      91.188  partonic=      91.188
+  dsqrt_shat     native=     111.188  partonic=         0.0
+  ptj            native=        20.0  partonic=          20
+  etaj           native=        -1.0  partonic=        -1.0
+  maxjetflavor   native=           4  partonic=           4
+
+LHE event headers (SCALUP, AQEDUP, AQCDUP), first 20 events/file:
+  native_zj_nocuts\SubProcesses\P1_gq_zq\G1\events.lhe: n=20 unique scale=[91.188] aqed=[0.00754677] aqcd=[0.13]
+  native_zj_nocuts\SubProcesses\P1_gq_zq\G2\events.lhe: n=20 unique scale=[91.188] aqed=[0.00754677] aqcd=[0.13]
+  native_zj_nocuts\SubProcesses\P1_qq_zg\G1\events.lhe: n=20 unique scale=[91.188] aqed=[0.00754677] aqcd=[0.13]
+  native_zj_nocuts\SubProcesses\P1_qq_zg\G2\events.lhe: n=20 unique scale=[91.188] aqed=[0.00754677] aqcd=[0.13]
+
+LHE <init> blocks:
+  native_zj_nocuts\SubProcesses\P1_gq_zq\G1\events.lhe: NO (<init> absent)
+  native_zj_nocuts\SubProcesses\P1_gq_zq\G2\events.lhe: NO (<init> absent)
+  native_zj_nocuts\SubProcesses\P1_qq_zg\G1\events.lhe: NO (<init> absent)
+  native_zj_nocuts\SubProcesses\P1_qq_zg\G2\events.lhe: NO (<init> absent)
+
+kinematic threshold:
+  MZ=91.188, ptj=20.0: sqrt(MZ^2+ptj^2)+ptj = 113.355511 GeV
+  native dsqrt_shat = 111.188 GeV
+  partonic scan starts at 114.0 GeV; missing interval = 0.644489 GeV
+  native dsqrt_shat is below the true threshold, so it does not cut phase space.
+
+==============================================================================
+STEP 2 - subprocess, flavor, symmetry mapping
+==============================================================================
+
+partonic processes.dat:
+  P1: P1_gq_zq
+      1       g u > z u
+      mirror  none
+  P2: P2_gq_zq
+      1       g d > z d
+      mirror  none
+  P3: P3_gq_zq
+      1       g u~ > z u~
+      mirror  none
+  P4: P4_gq_zq
+      1       g d~ > z d~
+      mirror  none
+  P5: P5_qq_zg
+      1       u u~ > z g
+      mirror  none
+  P6: P6_qq_zg
+      1       d d~ > z g
+      mirror  none
+
+native processes.dat:
+  P1_gq_zq:
+      1       g u > z u,g c > z c
+      mirror  u g > z u,c g > z c
+      2       g d > z d,g s > z s
+      mirror  d g > z d,s g > z s
+      3       g u~ > z u~,g c~ > z c~
+      mirror  u~ g > z u~,c~ g > z c~
+      4       g d~ > z d~,g s~ > z s~
+      mirror  d~ g > z d~,s~ g > z s~
+  P1_qq_zg:
+      1       u u~ > z g,c c~ > z g
+      mirror  u~ u > z g,c~ c > z g
+      2       d d~ > z g,s s~ > z g
+      mirror  d~ d > z g,s~ s > z g
+
+symfact.dat:
+  partonic P5_qq_zg: ['1            1', '2            1']
+  partonic P6_qq_zg: ['1            1', '2            1']
+  native P1_gq_zq: ['1            1', '2            1']
+  native P1_qq_zg: ['1            1', '2            1']
+
+cumulative per-channel native/partonic ratios (sqrt(s-hat) >= 114):
+  gu_zu    native=  3247.71  partonic=  3237.80  ratio=1.0031
+  gd_zd    native=  2782.27  partonic=  2794.32  ratio=0.9957
+  gux_zux  native=  1012.09  partonic=  1007.93  ratio=1.0041
+  gdx_zdx  native=  1474.21  partonic=  1488.86  ratio=0.9902
+  uux_zg   native=  1705.44  partonic=  1699.53  ratio=1.0035
+  ddx_zg   native=  1653.10  partonic=  1648.51  ratio=1.0028
+  total    native= 11874.82  partonic= 11876.96  ratio=0.9998
+  gq       native=  8516.28  partonic=  8528.92  ratio=0.9985
+  qqbar    native=  3358.54  partonic=  3348.04  ratio=1.0031
+
+==============================================================================
+STEP 3 - differential ratio native/partonic
+==============================================================================
+
+         bin      gu_zu     gd_zd   gux_zux   gdx_zdx    uux_zg    ddx_zg       all
+  114-  150     1.0173    1.0067    1.0271    0.9938    1.0085    1.0032    1.0090
+  150-  200     1.0028    0.9880    0.9713    1.0186    1.0067    1.0162    1.0006
+  200-  250     0.9618    1.0390    1.0036    0.9497    1.0027    1.0173    0.9939
+  250-  300     0.9996    0.9302    1.0240    1.0489    0.9583    0.9312    0.9792
+  300-  400     1.0414    0.9928    1.1050    0.8861    0.9880    0.9762    1.0032
+  400-  500     0.9472    0.9637    0.8841    1.1267    0.9636    1.0482    0.9782
+  500-  700     1.1043    0.9981    0.8607    0.6661    1.0837    0.9392    0.9958
+  700- 1000     0.8564    0.7403    0.8189    0.4186    0.9665    1.0319    0.8135
+ 1000- 2000     1.1930    0.5851    0.0000    0.0000    1.0370    0.7175    0.8257
+
+wrote C:\Users\laiji\test\madgraph_test\verification\normalization_gap.csv
+wrote C:\Users\laiji\test\madgraph_test\verification\normalization_gap.png
+
+==============================================================================
+THRESHOLD - 113.356 to 114 GeV
+==============================================================================
+exact threshold: 113.355511 GeV
+   113.356 GeV  dsigma/dsqrt(s) =     0.0000 pb/GeV
+   113.400 GeV  dsigma/dsqrt(s) =    21.6128 pb/GeV
+   113.600 GeV  dsigma/dsqrt(s) =    49.9775 pb/GeV
+   113.800 GeV  dsigma/dsqrt(s) =    66.5017 pb/GeV
+   114.000 GeV  dsigma/dsqrt(s) =    78.9949 pb/GeV
+threshold contribution (113.356-114): 33.837 pb
+adjusted no-eta: 11910.795 pb
+adjusted lab (f_lab=0.71989): 9137.673 pb
+adjusted CM (f_CM=1): 11787.383 pb
+Thanks for using LHAPDF 6.5.6. Please make sure to cite the paper:
+  Eur.Phys.J. C75 (2015) 3, 132  (http://arxiv.org/abs/1412.7420)

@@ -1,0 +1,29 @@
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+#0  0x41a9d1b1
+#1  0x41a06a63
+#2  0x2afdec00
+#3  0x2afe305a
+#4  0x416c987b
+#5  0x416b87a5
+#6  0x417f5c52
+#7  0x417f4805
+#8  0x1c0708cd
+#9  0x1c070af5
+#10  0x1c055ae5
+#11  0x1c04ccd9
+#12  0x1c04894d
+#13  0x1bff29cb
+#14  0x1bff36c8
+#15  0x1bff12ed
+#16  0x1bff1405
+#17  0x2b64dda6
+#18  0x2c07ee4b
+#19  0xffffffff
+terminate called after throwing an instance of 'LHAPDF::ReadError'
+  what():  Could not find any pdfsets.index files
+ Process in group number            1
+ A PDF is used, so alpha_s(MZ) is going to be modified
+ Old value of alpha_s from param_card:   0.11799999999999999     

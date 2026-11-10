@@ -1,0 +1,210 @@
+For tab completion and history, install module readline.
+************************************************************
+*                                                          *
+*                      W E L C O M E to                    *
+*             M A D G R A P H 5 _ a M C @ N L O            *
+*                      M A D E V E N T                     *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.6.7                                    *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************
+INFO: load configuration from C:\Users\laiji\test\madgraph_test\native_zj_lhapdf\Cards\me5_configuration.txt  
+INFO: load configuration from C:\Users\laiji\test\MG5_aMC_v3_6_7\input\mg5_configuration.txt  
+INFO: load configuration from C:\Users\laiji\test\madgraph_test\native_zj_lhapdf\Cards\me5_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+import command lhapdf_test3_commands.txt
+survey lhapdf_test3 --points=20000 --iterations=8 --accuracy=0.002
+INFO: compile directory 
+INFO: Using LHAPDF v6.5.6 interface for PDFs 
+[1;34mWARNING: Could not link C:Users\laiji\test\lhapdf-local\lib\libLHAPDF.a at position: C:\Users\laiji\test\madgraph_test\native_zj_lhapdf\lib [0m
+[1;34mWARNING: Could not copy C:Users\laiji\test\lhapdf-local\lib\libLHAPDF.a at position: C:\Users\laiji\test\madgraph_test\native_zj_lhapdf\lib [0m
+compile Source Directory
+Using random number seed offset = 27
+INFO: Running Survey 
+Creating Jobs
+Working on SubProcesses
+INFO: Compiling for process 1/2. 
+INFO:     P1_gq_zq  
+INFO: Compiling for process 2/2. 
+INFO:     P1_qq_zg  
+INFO:     P1_gq_zq  
+INFO:     P1_qq_zg  
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+#0  0xa3f3d1b1
+#1  0xa3ea6a63
+#2  0x2afdec00
+#3  0x2afe305a
+#4  0x6533987b
+#5  0x653287a5
+#6  0x65465c52
+#7  0x65464805
+#8  0xb1d308cd
+#9  0xb1d30af5
+#10  0xb1d15ae5
+#11  0xb1d0ccd9
+#12  0xb1d0894d
+#13  0xb1cb29cb
+#14  0xb1cb36c8
+#15  0xb1cb12ed
+#16  0xb1cb1405
+#17  0x2b64dda6
+#18  0x2c07ee4b
+#19  0xffffffff
+terminate called after throwing an instance of 'LHAPDF::ReadError'
+  what():  Could not find any pdfsets.index files
+rm: cannot remove 'results.dat': No such file or directory
+ERROR DETECTED
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+#0  0x653dd1b1
+#1  0x65346a63
+#2  0x2afdec00
+#3  0x2afe305a
+#4  0xa3e9987b
+#5  0xa3e887a5
+#6  0xa3fc5c52
+#7  0xa3fc4805
+#8  0xb1d308cd
+#9  0xb1d30af5
+#10  0xb1d15ae5
+#11  0xb1d0ccd9
+#12  0xb1d0894d
+#13  0xb1cb29cb
+#14  0xb1cb36c8
+#15  0xb1cb12ed
+#16  0xb1cb1405
+#17  0x2b64dda6
+#18  0x2c07ee4b
+#19  0xffffffff
+terminate called after throwing an instance of 'LHAPDF::ReadError'
+  what():  Could not find any pdfsets.index files
+rm: cannot remove 'results.dat': No such file or directory
+ERROR DETECTED
+INFO:  Idle: 1,  Running: 0,  Completed: 1 [ current time: 19h19 ] 
+INFO:  Idle: 0,  Running: 1,  Completed: 1 [ current time: 19h19 ] 
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+#0  0xa3f3d1b1
+#1  0xa3ea6a63
+#2  0x2afdec00
+#3  0x2afe305a
+#4  0x6533987b
+#5  0x653287a5
+#6  0x65465c52
+#7  0x65464805
+#8  0x6afeb7dd
+#9  0x6afeba05
+#10  0x6afd09f5
+#11  0x6afc7be9
+#12  0x6afc385d
+#13  0x6af729cb
+#14  0x6af736c8
+#15  0x6af712ed
+#16  0x6af71405
+#17  0x2b64dda6
+#18  0x2c07ee4b
+#19  0xffffffff
+terminate called after throwing an instance of 'LHAPDF::ReadError'
+  what():  Could not find any pdfsets.index files
+rm: cannot remove 'results.dat': No such file or directory
+ERROR DETECTED
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+#0  0xa3f3d1b1
+#1  0xa3ea6a63
+#2  0x2afdec00
+#3  0x2afe305a
+#4  0x6533987b
+#5  0x653287a5
+#6  0x65465c52
+#7  0x65464805
+#8  0x6afeb7dd
+#9  0x6afeba05
+#10  0x6afd09f5
+#11  0x6afc7be9
+#12  0x6afc385d
+#13  0x6af729cb
+#14  0x6af736c8
+#15  0x6af712ed
+#16  0x6af71405
+#17  0x2b64dda6
+#18  0x2c07ee4b
+#19  0xffffffff
+terminate called after throwing an instance of 'LHAPDF::ReadError'
+  what():  Could not find any pdfsets.index files
+rm: cannot remove 'results.dat': No such file or directory
+ERROR DETECTED
+INFO:  Idle: 0,  Running: 0,  Completed: 2 [  0.62s  ] 
+[1;31mError when reading C:\Users\laiji\test\madgraph_test\native_zj_lhapdf\SubProcesses\P1_gq_zq\G1\results.dat[0m
+The syntax of the command is incorrect.
+[1;31mCommand "import command lhapdf_test3_commands.txt" interrupted in sub-command:
+"survey lhapdf_test3 --points=20000 --iterations=8 --accuracy=0.002" with error:
+Exception : Reported error: End code 3.0 
+	 Full associated log: 
+	 Process in group number            1
+	 A PDF is used, so alpha_s(MZ) is going to be modified
+	 Old value of alpha_s from param_card:   0.11799999999999999     
+	
+	Program received signal SIGABRT: Process abort signal.
+	
+	Backtrace for this error:
+	#0  0xa3f3d1b1
+	#1  0xa3ea6a63
+	#2  0x2afdec00
+	#3  0x2afe305a
+	#4  0x6533987b
+	#5  0x653287a5
+	#6  0x65465c52
+	#7  0x65464805
+	#8  0xb1d308cd
+	#9  0xb1d30af5
+	#10  0xb1d15ae5
+	#11  0xb1d0ccd9
+	#12  0xb1d0894d
+	#13  0xb1cb29cb
+	#14  0xb1cb36c8
+	#15  0xb1cb12ed
+	#16  0xb1cb1405
+	#17  0x2b64dda6
+	#18  0x2c07ee4b
+	#19  0xffffffff
+	terminate called after throwing an instance of 'LHAPDF::ReadError'
+	  what():  Could not find any pdfsets.index files
+	
+	ls status:
+	NNPDF23_lo_as_0130_qed
+	input_app.txt
+	log.txt
+	pdfsets.index
+	run1_app.log
+	
+Please report this bug on https://bugs.launchpad.net/mg5amcnlo
+More information is found in 'C:\Users\laiji\test\madgraph_test\native_zj_lhapdf\lhapdf_test3_tag_1_debug.log'.
+Please attach this file to your report.[0m
+INFO:  
+quit
+INFO:  
+launch in debug mode

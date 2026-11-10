@@ -1,0 +1,41 @@
+ Process in group number            1
+ A PDF is used, so alpha_s(MZ) is going to be modified
+ Old value of alpha_s from param_card:   0.11799999999999999     
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+#0  0x659dd1b1
+#1  0x65946a63
+#2  0x2afdec00
+#3  0x2afe305a
+#4  0x64a5987b
+#5  0x64a487a5
+#6  0x64b85c52
+#7  0x64b84805
+#8  0xd24808cd
+#9  0xd2480af5
+#10  0xd2465ae5
+#11  0xd245ccd9
+#12  0xd245894d
+#13  0xd24029cb
+#14  0xd24036c8
+#15  0xd24012ed
+#16  0xd2401405
+#17  0x2b64dda6
+#18  0x2c07ee4b
+#19  0xffffffff
+terminate called after throwing an instance of 'LHAPDF::ReadError'
+  what():  Could not find any pdfsets.index files
+
+ls status:
+NNPDF23_lo_as_0130_qed
+direct_lhapdf.log
+direct_lhapdf_full.log
+direct_lhapdf_g2.log
+direct_lhapdf_win114_150.log
+events.lhe
+input_app.txt
+log.txt
+pdfsets.index
+run1_app.log

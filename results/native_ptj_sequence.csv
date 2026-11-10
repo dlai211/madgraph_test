@@ -1,0 +1,7 @@
+ptj_gev,sigma_pb,error_pb,note
+20,11913,10.866,native no-eta control
+10,23692,30.117,native no-eta this test
+5,40116,45.938,native no-eta this test
+2,68856,79.575,native no-eta this test
+1,95661,108.29,native no-eta this test
+0,1484700,43311,20k x 8; grid-dependent (P1 995 vs 146100); not converged

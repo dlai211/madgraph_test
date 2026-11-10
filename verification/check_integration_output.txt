@@ -1,0 +1,24 @@
+official 100-point trapezoid: 11876.9572 pb
+differential at 114, 150, 200, 250, 500, 1000, 2000 GeV:
+    114  7.899487e+01 +/- 2.287e-02 pb/GeV
+    150  1.107927e+02 +/- 3.207e-02 pb/GeV
+    200  4.253614e+01 +/- 1.424e-02 pb/GeV
+    250  1.890107e+01 +/- 5.696e-03 pb/GeV
+    500  1.186159e+00 +/- 3.223e-04 pb/GeV
+   1000  4.448797e-02 +/- 1.565e-05 pb/GeV
+   2000  1.176681e-03 +/- 3.734e-07 pb/GeV
+
+fine-grid integration (0.5 GeV):
+  linear linear-y: 11876.2523 pb  (delta -0.7049)
+  pchip  linear-y: 11875.0597 pb  (delta -1.8975)
+  log-linear: 11835.6447 pb  (delta -41.3125)
+  log-pchip : 11867.0252 pb  (delta -9.9321)
+  Simpson (log-PCHIP): 11867.6299 pb
+
+cumulative integral (official grid):
+  <=   150 GeV:   5341.34 pb ( 45.0%)
+  <=   200 GeV:   8852.14 pb ( 74.5%)
+  <=   250 GeV:  10294.27 pb ( 86.7%)
+  <=   500 GeV:  11710.75 pb ( 98.6%)
+  <=  1000 GeV:  11866.60 pb ( 99.9%)
+  <=  2000 GeV:  11876.96 pb (100.0%)

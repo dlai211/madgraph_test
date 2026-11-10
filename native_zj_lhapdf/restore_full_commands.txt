@@ -1,0 +1,1 @@
+survey restore_full --points=2000 --iterations=2 --accuracy=0.01

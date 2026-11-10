@@ -1,0 +1,67 @@
+For tab completion and history, install module readline.
+************************************************************
+*                                                          *
+*                      W E L C O M E to                    *
+*             M A D G R A P H 5 _ a M C @ N L O            *
+*                      M A D E V E N T                     *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.6.7                                    *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************
+INFO: load configuration from C:\Users\laiji\test\madgraph_test\partonic_zj\Cards\me5_configuration.txt  
+INFO: load configuration from C:\Users\laiji\test\MG5_aMC_v3_6_7\input\mg5_configuration.txt  
+INFO: load configuration from C:\Users\laiji\test\madgraph_test\partonic_zj\Cards\me5_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+import command scan_commands.txt
+survey noeta_fine_310p204 --points=10000 --iterations=6 --accuracy=0.002
+INFO: compile directory 
+compile Source Directory
+Using random number seed offset = 513
+INFO: Running Survey 
+Creating Jobs
+Working on SubProcesses
+INFO: Compiling for process 1/6. 
+INFO:     P1_gq_zq  
+INFO: Compiling for process 2/6. 
+INFO:     P2_gq_zq  
+INFO: Compiling for process 3/6. 
+INFO:     P3_gq_zq  
+INFO: Compiling for process 4/6. 
+INFO:     P4_gq_zq  
+INFO: Compiling for process 5/6. 
+INFO:     P5_qq_zg  
+INFO: Compiling for process 6/6. 
+INFO:     P6_qq_zg  
+INFO:     P1_gq_zq  
+INFO:     P2_gq_zq  
+INFO:     P3_gq_zq  
+INFO:     P4_gq_zq  
+INFO:     P5_qq_zg  
+INFO:     P6_qq_zg  
+INFO:  Idle: 1,  Running: 0,  Completed: 5 [ current time: 18h16 ] 
+INFO:  Idle: 0,  Running: 1,  Completed: 5 [ current time: 18h16 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 6 [  2.7s  ] 
+sum of cpu time of last step: 15 seconds
+  === Results Summary for run: noeta_fine_310p204 tag: tag_1 ===
+
+     Cross-section :   145.5 +- 0.05167 pb
+     Nb of events :  0
+ 
+INFO: End survey 
+quit
+INFO:  
+launch in debug mode

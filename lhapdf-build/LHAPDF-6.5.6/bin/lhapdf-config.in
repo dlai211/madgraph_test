@@ -1,0 +1,114 @@
+#! /usr/bin/env bash
+## -*- sh -*-
+## @configure_input@
+
+print_help() {
+cat <<EOF
+lhapdf-config: configuration tool for the LHAPDF
+               parton density function evolution library
+               https://www.lhapdf.org/
+
+Usage: $( basename $0 ) [options]
+Options:
+  --help | -h   : show this help message
+
+  --prefix              : show the installation prefix (cf. autoconf)
+  --incdir              : show the path to the LHAPDF C++ header directory
+  --libdir              : show the path to the LHAPDF library directory
+  --datadir             : show the path to the LHAPDF data directory
+  --pythonpath|--pydir  : show the path(s) to the directory containing LHAPDF's Python package
+
+  --cxx                   : returns a compiler string matching that used to build LHAPDF
+  --cxxflags              : returns a string matching the compiler flags used to build LHAPDF
+  --cflags|--cppflags     : returns a '-I' string for insertion into CPPFLAGS
+  --libs                  : returns a '-L/-l' string for insertion into LDFLAGS/LDLIBS
+  --ldflags|--libs-only-L : returns a '-L' string for insertion into LDFLAGS
+  --ldlibs|--libs-only-l  : returns a '-l' string for insertion into LDLIBS
+
+  --version     : return LHAPDF release version number
+EOF
+}
+
+## Check that arguments are valid
+show_prefix=0
+show_datdir=0
+show_incdir=0
+show_libdir=0
+show_pypath=0
+show_cxxexe=0
+show_cflags=0
+show_iflags=0
+show_lflags=0
+show_Lflags=0
+# Loop over arguments
+for opt in "$@"; do
+  case "$opt" in
+    --help)         print_help && exit 0 ;;
+    --h)            print_help && exit 0 ;;
+    --version)      echo "@PACKAGE_VERSION@" && exit 0 ;;
+    --prefix)       show_prefix=1 ;;
+    --includedir)   show_incdir=1 ;;
+    --libdir)       show_libdir=1 ;;
+    --datadir)      show_datdir=1 ;;
+    --pythonpath)   show_pypath=1 ;;
+    --pydir)        show_pypath=1 ;;
+    --cxx)          show_cxxexe=1 ;;
+    --cxxflags)     show_cflags=1 ;;
+    --cflags)       show_iflags=1 ;;
+    --cppflags)     show_iflags=1 ;;
+    --ldflags)      show_Lflags=1 ;;
+    --libs-only-L)  show_Lflags=1 ;;
+    --ldlibs)       show_lflags=1 ;;
+    --libs-only-l)  show_lflags=1 ;;
+    --libs)         show_Lflags=1; show_lflags=1 ;;
+    *)              print_help
+                    echo "Error: Unknown option '$opt'" >&2
+                    exit 1 ;;
+  esac
+done
+
+# Exit early if no valid options were given
+if [ "$show_prefix" -eq 0 ] && [ "$show_datdir" -eq 0 ] &&
+   [ "$show_incdir" -eq 0 ] && [ "$show_libdir" -eq 0 ] &&
+   [ "$show_pypath" -eq 0 ] && [ "$show_cxxexe" -eq 0 ] &&
+   [ "$show_cflags" -eq 0 ] && [ "$show_iflags" -eq 0 ] &&
+   [ "$show_lflags" -eq 0 ] && [ "$show_Lflags" -eq 0 ]; then
+  print_help
+  echo "Error: No valid options provided." >&2
+  exit 1
+fi
+
+## These variables need to exist
+## Note no use of $DESTDIR... we ignore it so that destdir can be used
+## for temp installs later copied to /
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+datarootdir=@datarootdir@
+
+OUT=""
+
+## "Atomic" build info
+[ "$show_cxxexe" -eq 1 ] && OUT="$OUT @LHAPDF_CXX@"
+[ "$show_prefix" -eq 1 ] && OUT="$OUT @prefix@"
+[ "$show_datdir" -eq 1 ] && OUT="$OUT @datarootdir@/@PACKAGE_TARNAME@"
+[ "$show_incdir" -eq 1 ] && OUT="$OUT @includedir@"
+[ "$show_libdir" -eq 1 ] && OUT="$OUT @libdir@"
+[ "$show_pypath" -eq 1 ] && OUT="$OUT @LHAPDF_PYTHONPATH@"
+
+## "Pre-rolled" build info
+[ "$show_cflags" -eq 1 ] && OUT="$OUT @LHAPDF_CXXFLAGS@"
+if [ "$show_iflags" -eq 1 ]; then
+  ilhapdf="@includedir@"
+  test -n "$ilhapdf" && OUT="$OUT -I${ilhapdf}"
+  iyamlcpp="@YAML_CPP_CPPFLAGS@"
+  test -n "$iyamlcpp" && OUT="$OUT -I${iyamlcpp}"
+fi
+if [ "$show_Lflags" -eq 1 ]; then
+  llhapdf="@libdir@"
+  test -n "$llhapdf" && OUT="$OUT -L${llhapdf}"
+  lyaml="@YAML_CPP_LDFLAGS@"
+  test -n "$lyaml" && OUT="$OUT ${lyaml}"
+fi
+[ "$show_lflags" -eq 1 ] && OUT="$OUT -lLHAPDF"
+
+echo $OUT

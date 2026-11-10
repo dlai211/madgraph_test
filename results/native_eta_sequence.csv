@@ -1,0 +1,4 @@
+etaj_max,sigma_pb,error_pb,note
+none,11913,10.866,no eta cut
+5.0,11892,10.534,lab-frame |eta|<5
+2.5,9142.3,6.7709,lab-frame |eta|<2.5

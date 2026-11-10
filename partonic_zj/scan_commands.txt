@@ -1,0 +1,1 @@
+survey highstat150_150p082 --points=100000 --iterations=10 --accuracy=0.001

@@ -1,0 +1,1 @@
+survey etaj5_50k --points=50000 --iterations=8 --accuracy=0.002

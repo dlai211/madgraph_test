@@ -1,0 +1,1 @@
+survey lhapdf_test4 --points=2000 --iterations=2 --accuracy=0.01

@@ -1,0 +1,53 @@
+For tab completion and history, install module readline.
+************************************************************
+*                                                          *
+*                      W E L C O M E to                    *
+*             M A D G R A P H 5 _ a M C @ N L O            *
+*                      M A D E V E N T                     *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.6.7                                    *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************
+INFO: load configuration from C:\Users\laiji\test\madgraph_test\native_zj_lhapdf\Cards\me5_configuration.txt  
+INFO: load configuration from C:\Users\laiji\test\MG5_aMC_v3_6_7\input\mg5_configuration.txt  
+INFO: load configuration from C:\Users\laiji\test\madgraph_test\native_zj_lhapdf\Cards\me5_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+import command lhapdf_test_commands.txt
+survey lhapdf_test --points=20000 --iterations=8 --accuracy=0.002
+INFO: compile directory 
+INFO: Using LHAPDF v6.5.6 interface for PDFs 
+[1;34mWARNING: Could not link C:Users\laiji\test\lhapdf-local\lib\libLHAPDF.a at position: C:\Users\laiji\test\madgraph_test\native_zj_lhapdf\lib [0m
+[1;34mWARNING: Could not copy C:Users\laiji\test\lhapdf-local\lib\libLHAPDF.a at position: C:\Users\laiji\test\madgraph_test\native_zj_lhapdf\lib [0m
+compile Source Directory
+The syntax of the command is incorrect.
+[1;31mError detected in sub-command survey lhapdf_test --points=20000 --iterations=8 --accuracy=0.002
+write debug file C:\Users\laiji\test\madgraph_test\native_zj_lhapdf\lhapdf_test_tag_1_debug.log 
+If you need help with this issue please contact us on https://answers.launchpad.net/mg5amcnlo
+str : A compilation Error occurs when trying to compile C:\Users\laiji\test\madgraph_test\native_zj_lhapdf\Source.
+	The compilation fails with the following output message:
+	    ../bin/madevent treatcards run
+	    madgraph requires the six module. The easiest way to install it is to run "pip install six --user"
+	    in case of problem with pip, you can download the file at https://pypi.org/project/six/ . It has a single python file that you just need to put inside a directory of your $PYTHONPATH environment variable.
+	    make: *** [makefile:89: run_card.inc] Error 1
+	    
+	Please try to fix this compilations issue and retry.
+	Help might be found at https://answers.launchpad.net/mg5amcnlo.
+	If you think that this is a bug, you can report this at https://bugs.launchpad.net/mg5amcnlo[0m
+INFO:  
+quit
+INFO:  
+launch in debug mode
