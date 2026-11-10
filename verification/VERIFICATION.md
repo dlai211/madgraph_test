@@ -3,8 +3,8 @@
 **Row audited:** `partonic convolution × native lab acceptance | lab | pT>20, |eta|<2.5 | fine`
 
 **Old result (superseded):** 10,599.26 pb, computed with
-`pdf.xfxQ(..., 91.188**2)`.  `xfxQ` takes \(Q\) in GeV, so this evaluated the
-PDFs at \(Q=8315.25\) GeV instead of \(Q=M_Z=91.188\) GeV.
+`pdf.xfxQ(..., 91.188**2)`.  `xfxQ` takes `Q` in GeV, so this evaluated the
+PDFs at `Q=8315.25` GeV instead of `Q=M_Z=91.188` GeV.
 
 **Corrected result (2026-11-10, clean event sample):** after switching to
 `pdf.xfxQ2`: no-eta **11,876.96 ± 0.61 pb**; lab single acceptance
@@ -49,13 +49,13 @@ All files are in `madgraph_test/verification/`.
 | input | file | role |
 |---|---|---|
 | partonic scan | `results/scan_noeta_fine.csv` | 100 energies, 114–2000 GeV, six channels, no eta, `pT>20` |
-| per-channel integrands | `verification/channel_integrands.csv` | \(I_c(E)=L_c(E)\sigma_c(E)\) recomputed from the scan |
-| PDF | LHAPDF 6.5.6 `NNPDF23_lo_as_0130_qed` (247000) | luminosity \(L_c(E)\) |
-| stored acceptance | `results/eta_frame_events.csv` | 25-GeV bins of \(f_{\rm lab}\), \(f_{\rm CM}\) |
+| per-channel integrands | `verification/channel_integrands.csv` | `I_c(E)=L_c(E)σ_c(E)` recomputed from the scan |
+| PDF | LHAPDF 6.5.6 `NNPDF23_lo_as_0130_qed` (247000) | luminosity `L_c(E)` |
+| stored acceptance | `results/eta_frame_events.csv` | 25-GeV bins of `f_lab`, `f_CM` |
 | fresh event sample | `verification/events_flat.csv` | 99,611 native LHE events used to re-derive the acceptance |
 | native results | logs `ptj20_check.log`, `bothcuts_100k.log` | 11,913 ± 10.9 pb and 9,142.3 ± 6.8 pb |
 
-The partonic scan settings are unchanged: `lpp1=lpp2=0`, `ebeam=√ŝ/2`, `pdlabel=none`, \(\alpha_s=0.130\), fixed scale 91.188 GeV, `maxjetflavor=4`, `ptj=20`, `etaj=-1`, 10k points, 6 iterations, accuracy 0.002.
+The partonic scan settings are unchanged: `lpp1=lpp2=0`, `ebeam=√ŝ/2`, `pdlabel=none`, `α_s=0.130`, fixed scale 91.188 GeV, `maxjetflavor=4`, `ptj=20`, `etaj=-1`, 10k points, 6 iterations, accuracy 0.002.
 
 The fine grid has 52 points at or below 250 GeV (2.78 GeV spacing) and 48 above 250 GeV (36.73 GeV spacing), with near-duplicate pairs at 200.000/200.041 and 236.122/236.735 GeV. Their trapezoid weights are tiny.
 
@@ -72,25 +72,25 @@ The fine grid has 52 points at or below 250 GeV (2.78 GeV spacing) and 48 above 
 | final-state particles per event | exactly 2 for all events |
 | jets per event (excluding Z) | exactly 1 for all events |
 | jet PDG | gluon 51,855; quarks 47,756 |
-| \(x_1\) range | \(1.05\times10^{-4}\) to 0.881 |
-| \(x_2\) range | \(9.47\times10^{-5}\) to 0.842 |
-| max \(\lvert\sqrt{\hat s}_{\rm LHE}-\sqrt{\hat s}_{Zj}\rvert\) | \(5.1\times10^{-6}\) GeV |
-| max \(\lvert Y_{\rm LHE}-Y_{Zj}\rvert\) | \(4.4\times10^{-8}\) |
-| max \(\lvert y_{\rm CM}-(y_{\rm lab}-Y)\rvert\) | \(1.1\times10^{-12}\) |
-| max \(\lvert y-\eta\rvert\) | \(4.2\times10^{-7}\) (lab), \(4.0\times10^{-7}\) (CM) |
+| `x_1` range | `1.05×10^-4` to 0.881 |
+| `x_2` range | `9.47×10^-5` to 0.842 |
+| max `lvert√ŝ_LHE-√ŝ_Zjrvert` | `5.1×10^-6` GeV |
+| max `lvert Y_LHE-Y_Zjrvert` | `4.4×10^-8` |
+| max `lvert y_CM-(y_lab-Y)rvert` | `1.1×10^-12` |
+| max `lvert y-ηrvert` | `4.2×10^-7` (lab), `4.0×10^-7` (CM) |
 
 The definitions are therefore consistent:
 
-\[
-x_1=\frac{E_{+z}}{6500},\quad x_2=\frac{E_{-z}}{6500},\quad
-Y=\frac12\ln\frac{x_1}{x_2},\quad
-\sqrt{\hat s}=\sqrt{x_1x_2}\,13\ \text{TeV},
-\]
-\[
-y_{\rm lab}=y(\text{jet}),\qquad y_{\rm CM}=y_{\rm lab}-Y.
-\]
+```text
+x_1=(E_+z)/(6500), x_2=(E_-z)/(6500), 
+Y=1/2 ln x_1/x_2, 
+√ŝ=√(x_1x_2) 13 TeV,
+```
+```text
+y_lab=y(jet), y_CM=y_lab-Y.
+```
 
-The jet is the highest-\(p_T\) final-state particle with PDG \(\ne 23\). At LO there is exactly one such particle, so the selection is unambiguous. Because the final-state parton is massless, \(y=\eta\) to \(4\times10^{-7}\); the acceptance therefore matches MadGraph's `etaj` cut.
+The jet is the highest-`p_T` final-state particle with PDG `≠ 23`. At LO there is exactly one such particle, so the selection is unambiguous. Because the final-state parton is massless, `y=η` to `4×10^-7`; the acceptance therefore matches MadGraph's `etaj` cut.
 
 The event weights are constant per grid, except `P1_qq_zg` which has 19 distinct weights. All fractions below are weighted; the effective sample size is about 54k, not 100k.
 
@@ -100,16 +100,16 @@ The event weights are constant per grid, except `P1_qq_zg` which has 19 distinct
 
 `verification/check_luminosity.py` tests the 1D rapidity integral
 
-\[
-\frac{dL_c}{d\sqrt{\hat s}}=
-\frac{2\sqrt{\hat s}}{s}
-\sum_{(a,b)\in c}\int_{-y_{\max}}^{y_{\max}}dy\,
-\frac{f_a(x_1,Q^2)}{x_1}\frac{f_b(x_2,Q^2)}{x_2},
-\quad
-x_{1,2}=\frac{\sqrt{\hat s}}{\sqrt{s}}e^{\pm y},
-\]
+```text
+dL_c/d√ŝ =
+2√ŝ/s 
+Σ_((a,b)∈ c)∫_-y_max^y_maxdy 
+(f_a(x_1,Q^2))/(x_1) (f_b(x_2,Q^2))/(x_2),
+ 
+x_(1,2)=√ŝ/√s e^(± y),
+```
 
-with \(Q^2=91.188^2\) GeV\(^2\), \(\sqrt{s}=13\) TeV, and both orderings.
+with `Q^2=91.188^2` GeV`^2`, `√s=13` TeV, and both orderings.
 
 ### Gauss–Legendre convergence
 
@@ -128,24 +128,24 @@ with \(Q^2=91.188^2\) GeV\(^2\), \(\sqrt{s}=13\) TeV, and both orderings.
 
 ### Independent adaptive quadrature
 
-`scipy.integrate.quad` on the same \(y\)-integral agrees with the 200-node Gauss–Legendre result at the \(10^{-7}\) level for all tested energies and channels (114, 150, 200, 300, 500, 1000, 2000 GeV; `gu_zu` and `uux_zg`).
+`scipy.integrate.quad` on the same `y`-integral agrees with the 200-node Gauss–Legendre result at the `10^-7` level for all tested energies and channels (114, 150, 200, 300, 500, 1000, 2000 GeV; `gu_zu` and `uux_zg`).
 
 ### Independent Jacobian check
 
-A direct change of variables \(u=x_1\), \(v=x_1x_2\) gives
+A direct change of variables `u=x_1`, `v=x_1x_2` gives
 
-\[
-L_c(\sqrt{\hat s})=\frac{2\sqrt{\hat s}}{s}
-\int_{\tau}^{1}\frac{du}{u}
-\left[
-f_a(u)f_b(\tau/u)+f_b(u)f_a(\tau/u)
-\right],
-\quad \tau=\hat s/s.
-\]
+```text
+L_c(√ŝ)=2√ŝ/s 
+∫_τ^1du/u 
+[
+f_a(u)f_b(τ/u)+f_b(u)f_a(τ/u)
+],
+ τ=ŝ/s.
+```
 
-This integral agrees with the \(y\)-integral to **1.00000000** for all six channels at 200 and 1000 GeV; one ordering alone is exactly half. This validates both the Jacobian \(1/u\) and the factor of 2 from the two beam orderings.
+This integral agrees with the `y`-integral to **1.00000000** for all six channels at 200 and 1000 GeV; one ordering alone is exactly half. This validates both the Jacobian `1/u` and the factor of 2 from the two beam orderings.
 
-A first 2D histogram check gave a ratio of 0.878. That check was too coarse (a 1 GeV curved band on a 4000-point grid) and was discarded; the exact \(u\)-integral above is the reliable independent check.
+A first 2D histogram check gave a ratio of 0.878. That check was too coarse (a 1 GeV curved band on a 4000-point grid) and was discarded; the exact `u`-integral above is the reliable independent check.
 
 ---
 
@@ -153,40 +153,38 @@ A first 2D histogram check gave a ratio of 0.878. That check was too coarse (a 1
 
 The hadronic differential cross section is
 
-\[
-\boxed{
-\frac{d\sigma_{\rm had}}{d\sqrt{\hat s}}(\sqrt{\hat s})
+```text
+dσ_had/d√ŝ (√ŝ)
 =
-\sum_c L_c(\sqrt{\hat s})\,\sigma_c(\sqrt{\hat s})
-}
-\]
+Σ_c L_c(√ŝ) σ_c(√ŝ)
+```
 
 in pb/GeV. It is the **integrand** of the total:
 
-\[
-\sigma_{\rm had}=\int_{114}^{2000} d\sqrt{\hat s}\,
-\frac{d\sigma_{\rm had}}{d\sqrt{\hat s}}.
-\]
+```text
+σ_had=∫_114^2000 d√ŝ 
+dσ_had/d√ŝ.
+```
 
 The lab-frame version multiplies the differential before integration:
 
-\[
-\frac{d\sigma_{\rm lab}}{d\sqrt{\hat s}}
-=f_{\rm lab}(\sqrt{\hat s})\,
-\frac{d\sigma_{\rm had}}{d\sqrt{\hat s}},
-\qquad
-\sigma_{\rm lab}=\int d\sqrt{\hat s}\,
-f_{\rm lab}(\sqrt{\hat s})\,
-\frac{d\sigma_{\rm had}}{d\sqrt{\hat s}}.
-\]
+```text
+dσ_lab/d√ŝ 
+=f_lab(√ŝ) 
+dσ_had/d√ŝ,
+ 
+σ_lab=∫ d√ŝ 
+f_lab(√ŝ) 
+dσ_had/d√ŝ.
+```
 
-That is how the acceptance is used: it is not applied to the total after the fact; it weights the differential at each \(\sqrt{\hat s}\), and the total is the area under the corrected curve.
+That is how the acceptance is used: it is not applied to the total after the fact; it weights the differential at each `√ŝ`, and the total is the area under the corrected curve.
 
 ### Reconstructed differential at key energies
 
 From `verification/differential.csv`:
 
-| \(\sqrt{\hat s}\) (GeV) | \(d\sigma/d\sqrt{\hat s}\) (pb/GeV) | \(f_{\rm lab}\) | \(f_{\rm CM}\) | lab differential (pb/GeV) | CM differential (pb/GeV) |
+| `√ŝ` (GeV) | `dσ/d√ŝ` (pb/GeV) | `f_lab` | `f_CM` | lab differential (pb/GeV) | CM differential (pb/GeV) |
 |---:|---:|---:|---:|---:|---:|
 | 114.00 | 106.027 | 0.71989 | 1.00000 | 76.328 | 106.027 |
 | 150.08 | 133.820 | 0.76460 | 1.00000 | 102.319 | 133.820 |
@@ -201,7 +199,7 @@ Above about 500 GeV the stored 25-GeV acceptance bins are statistics-limited and
 
 ### Cumulative integral
 
-| cut | \(\le 150\) GeV | \(\le 200\) GeV | \(\le 250\) GeV | \(\le 500\) GeV | \(\le 1000\) GeV |
+| cut | `≤ 150` GeV | `≤ 200` GeV | `≤ 250` GeV | `≤ 500` GeV | `≤ 1000` GeV |
 |---|---:|---:|---:|---:|---:|
 | no eta | 6,791.21 pb (49.0%) | 10,853.52 pb (78.3%) | 12,386.88 pb (89.3%) | 13,740.60 pb (99.1%) | 13,860.42 pb (100.0%) |
 | lab | 4,980.72 pb (47.0%) | 8,149.20 pb (76.9%) | 9,381.80 pb (88.5%) | 10,500.25 pb (99.1%) | 10,594.87 pb (100.0%) |
@@ -242,30 +240,30 @@ The per-channel integrals reproduce the official CSV exactly:
 
 | channel | integral (pb) |
 |---|---:|
-| \(gu\to Zu\) | 3,497.527 |
-| \(gd\to Zd\) | 3,013.248 |
-| \(g\bar u\to Z\bar u\) | 1,159.738 |
-| \(g\bar d\to Z\bar d\) | 1,664.827 |
-| \(u\bar u\to Zg\) | 2,299.753 |
-| \(d\bar d\to Zg\) | 2,231.499 |
+| `gu→Zu` | 3,497.527 |
+| `gd→Zd` | 3,013.248 |
+| `gū→Zū` | 1,159.738 |
+| `gd̄→Zd̄` | 1,664.827 |
+| `uū→Zg` | 2,299.753 |
+| `dd̄→Zg` | 2,231.499 |
 | **total** | **13,866.593 ± 0.733** |
 
 ### Threshold correction: 113.356–114 GeV
 
-The exact kinematic minimum for an on-shell \(Z\) recoiling against a massless
-parton with \(p_T>20\) GeV is at \(y^*=0\):
+The exact kinematic minimum for an on-shell `Z` recoiling against a massless
+parton with `p_T>20` GeV is at `y^(*)=0`:
 
-\[
-\sqrt{\hat s}_{\min}
+```text
+√ŝ_min
 =
-\sqrt{M_Z^2+p_T^2}+p_T
+√(M_Z^2+p_T^2)+p_T
 =
-\sqrt{91.188^2+20^2}+20
+√(91.188^2+20^2)+20
 =
-\mathbf{113.3555\ \text{GeV}}.
-\]
+113.3555 GeV.
+```
 
-The native run card's `dsqrt_shat = 111.188` is \(M_Z+p_T\), **not** the true
+The native run card's `dsqrt_shat = 111.188` is `M_Z+p_T`, **not** the true
 threshold. It is 2.1675 GeV below the true phase-space boundary, so it has no
 effect; the native phase space starts at 113.3555. The partonic scan started at
 114.0 and therefore missed 0.6445 GeV.
@@ -273,7 +271,7 @@ effect; the native phase space starts at 113.3555. The partonic scan started at
 A dedicated threshold scan at 113.4, 113.6, 113.8 GeV gives the partonic
 cross sections 79.94, 184.97, 246.26 pb. After luminosity convolution:
 
-| \(\sqrt{\hat s}\) (GeV) | \(d\sigma/d\sqrt{\hat s}\) (pb/GeV) |
+| `√ŝ` (GeV) | `dσ/d√ŝ` (pb/GeV) |
 |---:|---:|
 | 113.3555 | 0.000 |
 | 113.400 | 29.08 |
@@ -290,10 +288,10 @@ Trapezoid integral 113.3555–114: **45.46 pb**.
 | CM | 13,764.87 | +45.46 | **13,810.33 pb** |
 
 The threshold correction is **0.33%**. It does not close the normalization gap:
-the threshold-adjusted no-eta ratio is \(13,912.05/11,913=1.168\), or 14.4%.
+the threshold-adjusted no-eta ratio is `13,912.05/11,913=1.168`, or 14.4%.
 For the lab-frame total, the threshold correction (+32.7 pb) and the
 channel-dependent acceptance correction (−31 pb) nearly cancel, giving
-\(10,631.99\times0.99706=10,600.75\) pb — within 1.5 pb of the old 10,599.26.
+`10,631.99×0.99706=10,600.75` pb — within 1.5 pb of the old 10,599.26.
 
 ---
 
@@ -309,9 +307,9 @@ Applying the stored 25-GeV fractions with linear interpolation to the fine scan:
 |---|---:|
 | no-eta total | 13,866.5928 pb |
 | lab-corrected total | **10,599.2645 pb** |
-| effective \(f_{\rm lab}\) | **0.764374** |
+| effective `f_lab` | **0.764374** |
 | CM-corrected total | 13,764.8684 pb |
-| effective \(f_{\rm CM}\) | 0.992664 |
+| effective `f_CM` | 0.992664 |
 | direct partonic with-cut scan | 13,761.97 pb |
 | CM-corrected / direct | **1.00021** |
 
@@ -321,13 +319,13 @@ The CM cross-check is the strongest validation of the extraction: applying the s
 
 The native both-cuts survey (`bothcuts_100k`, 100k points × 10 iterations) gives 9,142.3 ± 6.8 pb; the independent 20k×8 survey gives 9,122 ± 15.1 pb, consistent within 1.3σ. The native no-eta survey gives 11,913 ± 10.9 pb. Their ratio is
 
-\[
-\frac{9,142.3}{11,913}=0.7674.
-\]
+```text
+(9,142.3)/(11,913) =0.7674.
+```
 
 The stored acceptance's global lab fraction is **0.7669**. Agreement: **0.07%**. This independently validates the stored acceptance normalization.
 
-**Etaj=5 sample bias.** The stored sample was generated with `etaj=5`, not `etaj=-1`. The eta=5 cut removes 0.174% of the event weight, and every removed event would fail \(|y|<2.5\), so the stored acceptance is high by 0.174% relative to a true no-eta sample (about 18 pb on the total). The native both-cuts/no-eta ratio is 0.7674 while the stored fraction is 0.7669; the 0.07% difference is within the roughly 0.2% statistical error of the stored sample. This bias is covered by the ±30 pb acceptance-normalization uncertainty and is not applied as a separate shift.
+**Etaj=5 sample bias.** The stored sample was generated with `etaj=5`, not `etaj=-1`. The eta=5 cut removes 0.174% of the event weight, and every removed event would fail `∣y∣<2.5`, so the stored acceptance is high by 0.174% relative to a true no-eta sample (about 18 pb on the total). The native both-cuts/no-eta ratio is 0.7674 while the stored fraction is 0.7669; the 0.07% difference is within the roughly 0.2% statistical error of the stored sample. This bias is covered by the ±30 pb acceptance-normalization uncertainty and is not applied as a separate shift.
 
 ### Fresh no-eta sample
 
@@ -335,36 +333,36 @@ The current no-eta LHE sample (99,611 events, weight 11,912.391 ± 51.146 pb) gi
 
 | quantity | value |
 |---|---:|
-| global \(f_{\rm lab}\) | 0.762090 ± 0.001765 |
+| global `f_lab` | 0.762090 ± 0.001765 |
 | lab-cut total | 9,078.31 ± 45.34 pb |
-| global \(f_{\rm CM}\) | 0.989391 ± 0.000469 |
+| global `f_CM` | 0.989391 ± 0.000469 |
 | CM-cut total | 11,786.01 ± 50.84 pb |
 | 25-GeV binned lab total | 10,532.62 pb |
 
 The fresh sample's lab total is 0.63% below the stored 10,599.26, but the difference from the native both-cuts 9,142.3 is only **1.4σ** given the fresh sample's 45 pb weighted-event error.
 
-The fresh sample's **CM** fraction is more decisive: 0.989391 ± 0.000469, versus the direct partonic with-cut ratio 13,761.97/13,866.59 = **0.99245**. The difference is \(0.00306\), or **6.5σ**. The stored acceptance's effective CM fraction is 0.992664, which matches the direct scan to 0.02%. Therefore the fresh no-eta sample is biased low in the acceptance (its phase-space grid under-samples the region where the CM cut rejects events), and the **stored acceptance is the reliable one**. The fresh sample is used below only for the channel-dependence **shape**, where its overall normalization cancels.
+The fresh sample's **CM** fraction is more decisive: 0.989391 ± 0.000469, versus the direct partonic with-cut ratio 13,761.97/13,866.59 = **0.99245**. The difference is `0.00306`, or **6.5σ**. The stored acceptance's effective CM fraction is 0.992664, which matches the direct scan to 0.02%. Therefore the fresh no-eta sample is biased low in the acceptance (its phase-space grid under-samples the region where the CM cut rejects events), and the **stored acceptance is the reliable one**. The fresh sample is used below only for the channel-dependence **shape**, where its overall normalization cancels.
 
 ### Why the fresh sample is biased
 
-The fresh sample comes from the `dsqrt_shat=111.188` no-eta run, whose MadEvent grid is optimized for the no-eta integrand. That grid under-samples the forward/high-\(\sqrt{\hat s}\) events that the CM and lab cuts remove, so both event-level fractions come out low. The etaj=5 sample has a grid adapted to a forward-sensitive cut and reproduces both the direct CM scan and the native lab both-cuts ratio. The stored acceptance is therefore the correct input; the fresh sample is a useful independent stress test, not a replacement.
+The fresh sample comes from the `dsqrt_shat=111.188` no-eta run, whose MadEvent grid is optimized for the no-eta integrand. That grid under-samples the forward/high-`√ŝ` events that the CM and lab cuts remove, so both event-level fractions come out low. The etaj=5 sample has a grid adapted to a forward-sensitive cut and reproduces both the direct CM scan and the native lab both-cuts ratio. The stored acceptance is therefore the correct input; the fresh sample is a useful independent stress test, not a replacement.
 
 ---
 
 ## 6. Step 5 — channel dependence
 
-The single-acceptance approximation applies one \(f(\sqrt{\hat s})\) to the sum of all six channels. The native events show that the acceptance differs by channel:
+The single-acceptance approximation applies one `f(√ŝ)` to the sum of all six channels. The native events show that the acceptance differs by channel:
 
-| channel | event-weighted \(f_{\rm lab}\) | event-weight share | partonic integral share |
+| channel | event-weighted `f_lab` | event-weight share | partonic integral share |
 |---|---:|---:|---:|
-| \(gu\to Zu\) | 0.7355 | 27.33% | 25.22% |
-| \(gd\to Zd\) | 0.7972 | 23.23% | 21.73% |
-| \(g\bar u\to Z\bar u\) | 0.8376 | 8.40% | 8.36% |
-| \(g\bar d\to Z\bar d\) | 0.8405 | 12.73% | 12.01% |
-| \(u\bar u\to Zg\) | 0.6605 | 14.42% | 16.58% |
-| \(d\bar d\to Zg\) | 0.7435 | 13.89% | 16.09% |
+| `gu→Zu` | 0.7355 | 27.33% | 25.22% |
+| `gd→Zd` | 0.7972 | 23.23% | 21.73% |
+| `gū→Zū` | 0.8376 | 8.40% | 8.36% |
+| `gd̄→Zd̄` | 0.8405 | 12.73% | 12.01% |
+| `uū→Zg` | 0.6605 | 14.42% | 16.58% |
+| `dd̄→Zg` | 0.7435 | 13.89% | 16.09% |
 
-The \(q\bar q\to Zg\) channels have a lower lab acceptance, and the fresh event sample under-weights them relative to the partonic integrands (14.42/13.89% versus 16.58/16.09%). A single acceptance therefore does not exactly reproduce the partonic channel mix.
+The `qq̄→Zg` channels have a lower lab acceptance, and the fresh event sample under-weights them relative to the partonic integrands (14.42/13.89% versus 16.58/16.09%). A single acceptance therefore does not exactly reproduce the partonic channel mix.
 
 Applying the per-channel acceptance from the fresh sample to each channel's integrand, and taking the ratio to the single-acceptance result from the same sample:
 
@@ -375,8 +373,8 @@ Applying the per-channel acceptance from the fresh sample to each channel's inte
 | 25-GeV polynomial deg 3 | 10,499.06 | 0.99758 |
 | 25-GeV polynomial deg 4 | 10,496.14 | 0.99745 |
 | 25-GeV polynomial deg 5 | 10,488.41 | 0.99690 |
-| kernel \(h=50\) GeV | 10,495.47 | 0.99756 |
-| kernel \(h=100\) GeV | 10,498.52 | 0.99724 |
+| kernel `h=50` GeV | 10,495.47 | 0.99756 |
+| kernel `h=100` GeV | 10,498.52 | 0.99724 |
 | kernel adaptive, max(25, 0.1E) | 10,497.80 | 0.99742 |
 | 50-GeV polynomial deg 3 | 10,473.97 | 0.99929 (unstable) |
 
@@ -386,23 +384,23 @@ unstable (0.998–1.002 depending on degree) because the coarse bins smear the
 channel differences; they are excluded from the central value. A Poisson
 bootstrap of the events (300 resamples) gives
 
-\[
-\frac{T_{\rm channel}}{T_{\rm single}}=0.997062\pm0.000456,
-\]
+```text
+T_channel/T_single =0.997062±0.000456,
+```
 
-i.e. a correction of \(-31.3\pm4.8\) pb on the fresh sample. Applying that ratio to the official stored-acceptance result:
+i.e. a correction of `-31.3±4.8` pb on the fresh sample. Applying that ratio to the official stored-acceptance result:
 
-\[
-10,599.2645 \times 0.997062 = 10,568.12\ \text{pb},
-\qquad
-\pm 4.84\ \text{pb (stat)}.
-\]
+```text
+10,599.2645 × 0.997062 = 10,568.12 pb,
+ 
+± 4.84 pb (stat).
+```
 
 The method spread across binning/fit choices is about **10 pb**. The channel-dependent correction is therefore
 
-\[
-\Delta_{\rm channel}=-31\pm5\ (\text{stat})\pm10\ (\text{method})\ \text{pb},
-\]
+```text
+Δ_channel=-31±5 (stat)±10 (method) pb,
+```
 
 or **−0.30% ± 0.11%**.
 
@@ -442,7 +440,7 @@ Native both-cuts: **9,142.3 ± 6.8 pb**.
 | threshold + channel / native | 10,600.75 / 9,142.3 = 1.1596 | 13.8% |
 | no-eta partonic (threshold-adjusted) / native no-eta | 13,912.05 / 11,913 = 1.1678 | 14.4% |
 
-The final acceptance factor is \(10,600.75/13,912.05=0.7620\), and the native factor is \(9,142.3/11,913=0.7674\); their ratio is 0.9929. The no-eta 16.8% gap times this 0.7% acceptance difference gives the observed 15.96% gap. The eta frame is not the cause of the normalization difference; the native low-\(\sqrt{\hat s}\) integration deficit is.
+The final acceptance factor is `10,600.75/13,912.05=0.7620`, and the native factor is `9,142.3/11,913=0.7674`; their ratio is 0.9929. The no-eta 16.8% gap times this 0.7% acceptance difference gives the observed 15.96% gap. The eta frame is not the cause of the normalization difference; the native low-`√ŝ` integration deficit is.
 
 ---
 
@@ -471,8 +469,8 @@ $PY verification/plot_differential.py
 Outputs:
 
 - `verification/events_flat.csv` — per-event kinematics and weights
-- `verification/channel_integrands.csv` — \(L_c\sigma_c\) at all 100 energies
-- `verification/differential.csv` — \(d\sigma/d\sqrt{\hat s}\), \(f_{\rm lab}\), \(f_{\rm CM}\), lab/CM differentials
+- `verification/channel_integrands.csv` — `L_cσ_c` at all 100 energies
+- `verification/differential.csv` — `dσ/d√ŝ`, `f_lab`, `f_CM`, lab/CM differentials
 - `verification/hadronic_differential.png` / `.pdf` — four-panel figure
 - `verification/bootstrap_channel.py` output — channel-correction bootstrap
 
@@ -480,9 +478,9 @@ Outputs:
 
 ## 9. Caveats
 
-1. **Hybrid, not pure partonic.** The acceptance is measured from native events and applied as a function of \(\sqrt{\hat s}\). It assumes the acceptance depends only on \(\sqrt{\hat s}\) within a 25-GeV bin, not on the partonic scattering angle. The channel-dependent test relaxes the channel part of that assumption but not the angular part.
+1. **Hybrid, not pure partonic.** The acceptance is measured from native events and applied as a function of `√ŝ`. It assumes the acceptance depends only on `√ŝ` within a 25-GeV bin, not on the partonic scattering angle. The channel-dependent test relaxes the channel part of that assumption but not the angular part.
 2. **Stored sample vs fresh sample.** The stored etaj=5 sample is validated by the direct CM scan (0.02%) and the native lab both-cuts ratio (0.07%). The fresh no-eta sample is biased low (CM fraction 6.5σ below the direct scan) and is used only for the channel shape.
-3. **High-\(\sqrt{\hat s}\) acceptance.** The 25-GeV bins above about 800 GeV have few events and the fractions scatter (including 0 at 2000 GeV). The contribution above 500 GeV is 0.93% of the lab total; above 1000 GeV it is 0.04%. The channel-dependent correction and the acceptance fits are insensitive to this tail at the few-pb level.
+3. **High-`√ŝ` acceptance.** The 25-GeV bins above about 800 GeV have few events and the fractions scatter (including 0 at 2000 GeV). The contribution above 500 GeV is 0.93% of the lab total; above 1000 GeV it is 0.04%. The channel-dependent correction and the acceptance fits are insensitive to this tail at the few-pb level.
 4. **Weighted events.** The event weights are not uniform (`P1_qq_zg` has 19 distinct weights), so the effective sample size is about 54k, not 100k. All quoted errors account for this where possible.
-5. **The 2D histogram check was discarded.** It was too coarse; the exact \(u\)-integral is the valid Jacobian check.
+5. **The 2D histogram check was discarded.** It was too coarse; the exact `u`-integral is the valid Jacobian check.
 6. **The channel-dependent correction uses the fresh sample's shape.** Its overall normalization is biased, but the channel/single ratio cancels that normalization. The residual shape bias is covered by the ±10 pb method spread.

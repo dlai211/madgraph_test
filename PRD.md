@@ -26,9 +26,9 @@ cross sections differ:
 
 | quantity | corrected value (2026-11-10) |
 |---|---:|
-| NF + LHAPDF, `|eta_CM|<2.5` | **11,752.44 ± 0.82 pb** |
+| NF + LHAPDF, `∣eta_CM∣<2.5` | **11,752.44 ± 0.82 pb** |
 | exact partonic MadEvent + LHAPDF, with cuts | **11,753.90 pb** |
-| native MadEvent fixed scale, `pT,j>20`, `|eta_j|<2.5` | **9,142.3 ± 6.8 pb** |
+| native MadEvent fixed scale, `pT,j>20`, `∣eta_j∣<2.5` | **9,142.3 ± 6.8 pb** |
 | native MadEvent fixed scale, `pT,j>20`, no eta cut | **11,913 ± 10.9 pb** |
 
 The pre-correction values (13,765.5, 13,761.97, 9,147.5, 11,915) used the
@@ -133,10 +133,10 @@ The native `ptj` is varied in the same way.
 The partonic cross section is evaluated at **50 linear points from 114 to
 2000 GeV**:
 
-\[
-\sqrt{\hat s}_i = 114 + i\frac{2000-114}{49},
-\qquad i=0,\dots,49,
-\]
+```text
+√ŝ_i = 114 + i(2000-114)/(49),
+ i=0,…,49,
+```
 
 spacing **38.49 GeV**. This is the same 50-point density as each of the
 earlier low/high interpolation scans, now continuous without a high/low split.
@@ -144,15 +144,15 @@ The low-energy region is under-sampled: only four points lie below 250 GeV.
 
 ### 3.4 Total integrated cross section
 
-For each channel \(c\), the partonic MadGraph values \(\hat\sigma_c(\sqrt{\hat s})\)
+For each channel `c`, the partonic MadGraph values `σ̂_c(√ŝ)`
 are convolved with the LHAPDF luminosity:
 
-\[
-\sigma_c =
-\int_{114}^{2000} d\sqrt{\hat s}\;
-\frac{dL_c}{d\sqrt{\hat s}}\;
-\hat\sigma_c(\sqrt{\hat s}),
-\]
+```text
+σ_c =
+∫_114^2000 d√ŝ 
+dL_c/d√ŝ 
+σ̂_c(√ŝ),
+```
 
 with the same beam energy, scale, and PDF pairs as the earlier campaign. The
 trapezoid rule is used on the 50-point grid. The total is the sum of the six
@@ -350,7 +350,7 @@ The native total grows monotonically as `ptj` decreases. There is no plateau:
 the ratio from `ptj = 20` to `ptj = 1` is **8.0×**, and the `ptj = 0` point is
 another **15.5×** above `ptj = 1` but is not a converged number.
 
-Partonic `Z + j` at \(\sqrt{\hat s}=200\) GeV, no eta cut:
+Partonic `Z + j` at `√ŝ=200` GeV, no eta cut:
 
 | `ptj` (GeV) | partonic sum (pb) |
 |---:|---:|
@@ -359,8 +359,8 @@ Partonic `Z + j` at \(\sqrt{\hat s}=200\) GeV, no eta cut:
 | 2 | 675.7 ± 0.09 |
 
 The partonic cross section also grows as `ptj` decreases. The growth is milder
-at fixed \(\sqrt{\hat s}=200\) GeV than in the native total, because the native
-total is dominated by the low-\(\sqrt{\hat s}\) region where the divergence is
+at fixed `√ŝ=200` GeV than in the native total, because the native
+total is dominated by the low-`√ŝ` region where the divergence is
 strongest.
 
 ### 5.3 Finite-regulator comparison at `ptj = 5`
@@ -392,27 +392,27 @@ results; they keep `pT,j > 20 GeV`.
 | method | total (pb) | note |
 |---|---:|---|
 | MadGraph, no eta, **continuous 50-point grid** | **11,561.17 ± 1.13** | `ptj = 20` |
-| MadGraph, `|eta|<2.5`, **same 50-point grid** | **11,457.05** | `ptj = 20` |
-| MadGraph, `|eta|<2.5`, **fine low/high grid** | **13,761.97** | previous exact convolution |
-| NF + LHAPDF, `|eta|<2.5` | **13,765.5 ± 0.59** | reference only |
+| MadGraph, `∣eta∣<2.5`, **same 50-point grid** | **11,457.05** | `ptj = 20` |
+| MadGraph, `∣eta∣<2.5`, **fine low/high grid** | **13,761.97** | previous exact convolution |
+| NF + LHAPDF, `∣eta∣<2.5` | **13,765.5 ± 0.59** | reference only |
 | native MadEvent, no eta | 11,913 ± 10.9 | `ptj = 20`, this test |
 | native MadEvent, both cuts | 9,147.5 ± 10.32 | campaign baseline |
 
 The controlled comparison at `ptj = 20`:
 
-\[
-13{,}761.97 \;\text{(fine with cuts)}
+```text
+13,761.97 (fine with cuts)
 -
-11{,}457.05 \;\text{(same 50-grid with cuts)}
+11,457.05 (same 50-grid with cuts)
 =
-2{,}304.92\ \text{pb}
-\]
+2,304.92 pb
+```
 
 is a **16.7% grid effect**. The eta effect on the same coarse grid is only
 
-\[
-11{,}561.17 - 11{,}457.05 = 104.12\ \text{pb}\ (0.9\%).
-\]
+```text
+11,561.17 - 11,457.05 = 104.12 pb (0.9%).
+```
 
 The fine-grid with-cut MadGraph convolution (13,761.97 pb) agrees with the NF
 total (13,765.5 pb); both use the partonic CM-frame eta cut, so this agreement
@@ -450,40 +450,40 @@ different eta effects is the frame in which the cut is applied:
   **partonic CM frame** rapidity.
 
 These are not the same observable. The partonic CM is boosted along the beam
-by rapidity \(Y\), so
+by rapidity `Y`, so
 
-\[
-y_{\rm lab} = y_{\rm CM} + Y.
-\]
+```text
+y_lab = y_CM + Y.
+```
 
 A jet that is central in the partonic CM can be forward in the lab, and vice
 versa. The current convolution uses the total partonic cross section
-\(\hat\sigma(\sqrt{\hat s})\) with a cut on \(y_{\rm CM}\); the physical lab
-cut requires the double-differential \(d\hat\sigma/dY\) and the constraint
+`σ̂(√ŝ)` with a cut on `y_CM`; the physical lab
+cut requires the double-differential `dσ̂/dY` and the constraint
 
-\[
-|\eta_{\rm CM} + Y| < 2.5.
-\]
+```text
+∣η_CM + Y∣ < 2.5.
+```
 
 The native eta scan shows the lab-frame effect:
 
 | native cut | total (pb) |
 |---|---:|
 | no eta | 11,913 ± 10.9 |
-| lab \(|\eta|<5\) | 11,892 ± 10.5 |
-| lab \(|\eta|<2.5\) | 9,142 ± 6.8 |
+| lab `∣η∣<5` | 11,892 ± 10.5 |
+| lab `∣η∣<2.5` | 9,142 ± 6.8 |
 
 The partonic CM-frame scan on the same 50-point grid:
 
 | partonic cut | total (pb) |
 |---|---:|
 | no eta | 11,561.17 ± 1.13 |
-| CM \(|\eta|<2.5\) | 11,457.05 |
+| CM `∣η∣<2.5` | 11,457.05 |
 
 The native LHE events (100,990 events, weight sum 11,891.7 pb) show the same
 effect directly. Applying the cut to the same events gives:
 
-| frame of the \(|\eta|<2.5\) cut | weighted fraction | implied total (pb) |
+| frame of the `∣η∣<2.5` cut | weighted fraction | implied total (pb) |
 |---|---:|---:|
 | lab frame | 0.7669 | 9,119 |
 | partonic CM frame | 0.9899 | 11,772 |
@@ -501,16 +501,16 @@ in MadGraph or the NF.
 #### Correcting the partonic total to the lab frame
 
 The event-level lab acceptance can be applied as a function of
-\(\sqrt{\hat s}\) to the partonic no-eta integrand. The results are:
+`√ŝ` to the partonic no-eta integrand. The results are:
 
 | convolution | total (pb) | ratio to no-eta |
 |---|---:|---:|
 | coarse no eta | 11,561.17 | 1.0000 |
-| coarse CM \(|\eta|<2.5\) | 11,460.53 | 0.9913 |
-| coarse lab-corrected \(|\eta|<2.5\) | 8,951.23 | 0.7742 |
+| coarse CM `∣η∣<2.5` | 11,460.53 | 0.9913 |
+| coarse lab-corrected `∣η∣<2.5` | 8,951.23 | 0.7742 |
 | **fine no eta** | **13,866.59** | 1.0000 |
-| **fine CM \(|\eta|<2.5\)** | **13,764.87** | 0.9927 |
-| **fine lab-corrected \(|\eta|<2.5\)** | **10,599.26** | 0.7644 |
+| **fine CM `∣η∣<2.5`** | **13,764.87** | 0.9927 |
+| **fine lab-corrected `∣η∣<2.5`** | **10,599.26** | 0.7644 |
 
 The fine CM correction matches the direct fine with-cut total (13,764.87 vs
 13,761.97 pb, 0.02%), and the fine lab fraction (0.7644) matches the native
@@ -523,7 +523,7 @@ scan (**13,866.59 pb**) shows the native no-eta **11,913 pb** is 14.1% low. The
 remaining issue is the native absolute normalization, not the eta frame.
 
 A differential check (`results/differential_compare.csv`) shows the deficit is
-concentrated at low \(\sqrt{\hat s}\): native/partonic is **0.834** in
+concentrated at low `√ŝ`: native/partonic is **0.834** in
 114–250 GeV, **1.003** in 250–500 GeV, and **1.274** in 500–1000 GeV
 (statistics-limited above 1000 GeV). A threshold-aware native run with
 `dsqrt_shat = 111.188` GeV gives 11,912 pb, so the `dsqrt_shat` setting is not
@@ -540,7 +540,7 @@ is a same-length binary replacement of the embedded POSIX path
 
 To make a consistent both-cuts comparison, the partonic convolution must apply
 the eta cut in the **lab frame**. That requires the double-differential
-partonic cross section \(d\hat\sigma/dy_{\rm CM}\) (or event-level information
+partonic cross section `dσ̂/dy_CM` (or event-level information
 from the partonic calculation), not just the total partonic cross section with
 a CM eta cut. Alternatively, one can compare native and partonic with an eta
 cut defined in the partonic CM frame, but that is not the physical hadronic
@@ -570,8 +570,8 @@ The machine-readable version is `results/madgraph_consistency.csv`.
 - `results/consistency_scenarios.png` — native vs partonic totals for
   `pT`-only and both-cuts. The `pT`-only bars agree; the both-cuts bars differ
   because the eta cut is in different frames.
-- `results/eta_frame_events.csv` — native-event \(\sqrt{\hat s}\) bins with the
-  weighted lab-frame and partonic-CM-frame `|eta|<2.5` fractions.
+- `results/eta_frame_events.csv` — native-event `√ŝ` bins with the
+  weighted lab-frame and partonic-CM-frame `∣eta∣<2.5` fractions.
 - `results/lab_eta_correction.csv` and `results/lab_eta_correction.json` — the
   coarse partonic no-eta, CM-cut, and lab-corrected totals.
 - `results/lab_eta_correction.png` — coarse: native both-cuts 9,142 pb,
@@ -582,14 +582,14 @@ The machine-readable version is `results/madgraph_consistency.csv`.
   `.json`, and `results/noeta_fine/lab_eta_correction.csv` / `.json` — the
   fine 100-point no-eta scan, integral, and lab/CM correction.
 - `results/differential_compare.csv` / `.json` / `.png` — native vs fine
-  partonic \(d\sigma/d\sqrt{\hat s}\); native/partonic 0.834 in 114–250 GeV,
+  partonic `dσ/d√ŝ`; native/partonic 0.834 in 114–250 GeV,
   1.003 in 250–500, 1.274 in 500–1000 (statistics-limited above).
 - `results/madgraph_consistency.csv` — the three cut scenarios, native vs
   partonic, with the frame note.
 - `results/partonic_cross_section_vs_energy.png` — six channels and the sum,
-  no eta cut, with the `|eta|<2.5` curve on the same coarse 50-point grid and
+  no eta cut, with the `∣eta∣<2.5` curve on the same coarse 50-point grid and
   on the fine low/high grid.
-- `results/hadronic_integrand_vs_energy.png` — \(dL/d\sqrt{\hat s}\times\sigma\)
+- `results/hadronic_integrand_vs_energy.png` — `dL/d√ŝ×σ`
   for the no-eta scan; the area is the total.
 - `results/total_comparison.png` — total integrated cross sections at
   `ptj = 20`: MadGraph no-eta, MadGraph with cuts, NF reference, native no-eta,
@@ -658,7 +658,7 @@ resolve the low-energy threshold).
   observables.
 - The lab-frame correction uses the native event-level acceptance, not a pure
   partonic differential calculation. A pure partonic implementation would
-  generate partonic events at each \(\sqrt{\hat s}\) and boost by \(Y\) sampled
+  generate partonic events at each `√ŝ` and boost by `Y` sampled
   from the luminosity. The fine lab-corrected 10,599.26 pb vs native 9,142.3 pb
   is a 13.7% native deficit; the frame fraction matches (0.7644 vs 0.7669).
 - The fine no-eta total is measured at **13,866.59 ± 0.73 pb**. The native

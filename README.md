@@ -1,7 +1,7 @@
 # madgraph_test
 
 A self-contained MadGraph test of `Z + 1 jet` at 13 TeV: native
-`p p > Z j` versus a fixed-\(\sqrt{\hat s}\) partonic scan convolved with
+`p p > Z j` versus a fixed-`√ŝ` partonic scan convolved with
 LHAPDF. Read [`FINDINGS.md`](FINDINGS.md) for the summary and
 [`PRD.md`](PRD.md) for the full method, commands, and caveats. The detailed
 lab-frame audit is in [`verification/VERIFICATION.md`](verification/VERIFICATION.md);
@@ -11,8 +11,8 @@ the normalization-gap resolution is in
 ## Latest result
 
 The earlier ~14% "native deficit" was a **PDF-scale bug in our convolution**:
-`pdf.xfxQ(..., q2)` evaluates at \(Q=q2\) (GeV), so passing
-`q2 = 91.188**2` used \(Q=8315.25\) GeV instead of \(Q=M_Z\). After switching
+`pdf.xfxQ(..., q2)` evaluates at `Q=q2` (GeV), so passing
+`q2 = 91.188**2` used `Q=8315.25` GeV instead of `Q=M_Z`. After switching
 to `pdf.xfxQ2(..., q2)`:
 
 | scenario | native (pb) | corrected partonic (pb) | agreement |
@@ -74,12 +74,12 @@ verification/normalization_gap.png
 | scenario | native MadGraph | partonic convolution | status |
 |---|---:|---:|---|
 | no cuts (`etaj=-1`, `ptj=0`) | 1.485e6 ± 43,311 pb | no finite result | divergent |
-| \(p_T\) only (`etaj=-1`, `ptj=20`) | 11,913 ± 10.9 pb | coarse 10,062.31; **fine 11,876.96 ± 0.61** | 0.3% |
+| `p_T` only (`etaj=-1`, `ptj=20`) | 11,913 ± 10.9 pb | coarse 10,062.31; **fine 11,876.96 ± 0.61** | 0.3% |
 | both cuts (`etaj=2.5`, `ptj=20`) | 9,142.3 ± 6.8 pb (lab) | CM 11,753.55; **single lab 9,113.31**; **per-channel + threshold 9,142.25** | 0.0005% |
 
 ### Eta frame
 
-The native run applies \(|\eta_j|<2.5\) in the **lab frame**. The partonic scan
+The native run applies `∣η_j∣<2.5` in the **lab frame**. The partonic scan
 uses `lpp=0`, so its `etaj=2.5` is the **partonic CM** rapidity. The native
 event-level lab fraction is **0.7666**; the acceptance-weighted fine lab
 fraction is **0.7673**. The native eta effect is 23% (11,913 → 9,142); the
@@ -109,4 +109,4 @@ pdf.xfxQ2(pid, x, q2)    # q2 in GeV^2
 
 All convolution callers in `madgraph_test` use `xfxQ2`. The upstream
 `conditional-nf-integration/experiments/integrate_hadronic_process.py` was also
-patched. The native `q2fact` is fixed to \(91.188^2\) and was correct all along.
+patched. The native `q2fact` is fixed to `91.188^2` and was correct all along.

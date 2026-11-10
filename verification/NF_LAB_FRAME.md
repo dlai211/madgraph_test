@@ -2,14 +2,14 @@
 
 **Result (clean no-eta event sample):**
 
-\[
-\boxed{\sigma_{\rm lab}^{\rm NF}
-=9{,}155.14 \pm 8.92\ \text{pb}}
-\]
+```text
+σ_lab^NF
+=9,155.14 ± 8.92 pb
+```
 
-for \(p_T>20\) GeV, \(|\eta_{\rm lab}|<2.5\), \(114\)–\(2000\) GeV plus the
-exact \(113.3555\)–\(114\) GeV threshold. The error is
-\(\sqrt{0.77_{\rm stat}^2+6.67_{\rm tail/sample}^2+5.9_{\rm NF\,accept}^2}\).
+for `p_T>20` GeV, `∣η_lab∣<2.5`, `114`–`2000` GeV plus the
+exact `113.3555`–`114` GeV threshold. The error is
+`√(0.77_stat^2+6.67_(tail/sample)^2+5.9_(NF accept)^2)`.
 
 Comparisons:
 
@@ -33,32 +33,32 @@ Summary: [`nf_lab_total.json`](nf_lab_total.json)
 ## 1. Why this is not just multiplying by 0.767
 
 The current NF is trained in the **partonic CM frame** with the CM cut
-\(|\eta_{\rm CM}|<2.5\). It cannot sample the no-eta distribution directly.
-The lab frame requires the boost \(Y\) from the PDF luminosity:
+`∣η_CM∣<2.5`. It cannot sample the no-eta distribution directly.
+The lab frame requires the boost `Y` from the PDF luminosity:
 
-\[
-y_{\rm lab}=y_{\rm CM}+Y.
-\]
+```text
+y_lab=y_CM+Y.
+```
 
 The calculation therefore works event by event:
 
-1. sample phase-space points from the NF at fixed \(\sqrt{\hat s}\);
+1. sample phase-space points from the NF at fixed `√ŝ`;
 2. map each point to the jet four-momentum in the partonic CM;
-3. compute \(y_{\rm CM}\);
-4. draw the boost \(Y\) from the LHAPDF luminosity for the channel;
-5. apply \(|y_{\rm CM}+Y|<2.5\);
+3. compute `y_CM`;
+4. draw the boost `Y` from the LHAPDF luminosity for the channel;
+5. apply `∣y_CM+Y∣<2.5`;
 6. include both beam orderings (the NF sample is one ordering; the mirror
-   ordering is \(y_{\rm CM}\to-y_{\rm CM}\) with the PDF weights swapped).
+   ordering is `y_CM→-y_CM` with the PDF weights swapped).
 
 This gives the lab acceptance of the **CM-cut** NF sample,
-\(f_{\rm lab|CM}(\sqrt{\hat s})\).
+`f_(lab∣CM)(√ŝ)`.
 
-The CM-cut NF misses events with \(|y_{\rm CM}|>2.5\) that still pass the lab
+The CM-cut NF misses events with `∣y_CM∣>2.5` that still pass the lab
 cut. That tail is measured from the native no-eta event sample as
 
-\[
-r(\sqrt{\hat s})=\frac{P(\text{CM fail and lab pass})}{P(\text{CM pass})},
-\]
+```text
+r(√ŝ)=(P(CM fail and lab pass))/(P(CM pass)),
+```
 
 and added as a small correction.
 
@@ -77,20 +77,20 @@ and added as a small correction.
 ### 2.2 NF lab acceptance vs native CM-cut events
 
 The NF acceptance is compared with the clean no-eta event sample restricted
-to \(|y_{\rm CM}|<2.5\):
+to `∣y_CM∣<2.5`:
 
-| channel | \(\sqrt{\hat s}\) | native \(f_{\rm lab|CM}\) | NF \(f_{\rm lab|CM}\) |
+| channel | `√ŝ` | native `f_(lab∣CM)` | NF `f_(lab∣CM)` |
 |---|---:|---:|---:|
-| \(gu\to Zu\) | 150 | 0.7270 | 0.7204 |
-| \(gu\to Zu\) | 200 | 0.7755 | 0.7944 |
-| \(gu\to Zu\) | 300 | 0.8620 | 0.8611 |
-| \(gu\to Zu\) | 500 | 0.9152 | 0.9076 |
-| \(u\bar u\to Zg\) | 150 | 0.6645 | 0.6753 |
-| \(u\bar u\to Zg\) | 200 | 0.6857 | 0.6812 |
-| \(u\bar u\to Zg\) | 300 | 0.7006 | 0.6830 |
-| \(u\bar u\to Zg\) | 500 | 0.7611 | 0.7269 |
+| `gu→Zu` | 150 | 0.7270 | 0.7204 |
+| `gu→Zu` | 200 | 0.7755 | 0.7944 |
+| `gu→Zu` | 300 | 0.8620 | 0.8611 |
+| `gu→Zu` | 500 | 0.9152 | 0.9076 |
+| `uū→Zg` | 150 | 0.6645 | 0.6753 |
+| `uū→Zg` | 200 | 0.6857 | 0.6812 |
+| `uū→Zg` | 300 | 0.7006 | 0.6830 |
+| `uū→Zg` | 500 | 0.7611 | 0.7269 |
 
-The agreement is 1–2.5% at most points; the 500 GeV \(u\bar u\) point has only
+The agreement is 1–2.5% at most points; the 500 GeV `uū` point has only
 66 events and differs by 4.5%. The integrated effect is covered by the 5.9 pb
 NF-acceptance model error.
 
@@ -108,12 +108,12 @@ Per channel:
 
 | channel | NF CM | NF lab (CM-cut) | tail | full lab |
 |---|---:|---:|---:|---:|
-| \(gu\to Zu\) | 3,196.92 | 2,383.18 | 39.95 | 2,423.13 |
-| \(gd\to Zd\) | 2,762.43 | 2,200.09 | 24.01 | 2,224.10 |
-| \(g\bar u\to Z\bar u\) | 999.06 | 853.59 | 1.65 | 855.25 |
-| \(g\bar d\to Z\bar d\) | 1,476.79 | 1,262.55 | 8.29 | 1,270.84 |
-| \(u\bar u\to Zg\) | 1,683.12 | 1,124.84 | 8.21 | 1,133.04 |
-| \(d\bar d\to Zg\) | 1,634.12 | 1,217.59 | 6.60 | 1,224.19 |
+| `gu→Zu` | 3,196.92 | 2,383.18 | 39.95 | 2,423.13 |
+| `gd→Zd` | 2,762.43 | 2,200.09 | 24.01 | 2,224.10 |
+| `gū→Zū` | 999.06 | 853.59 | 1.65 | 855.25 |
+| `gd̄→Zd̄` | 1,476.79 | 1,262.55 | 8.29 | 1,270.84 |
+| `uū→Zg` | 1,683.12 | 1,124.84 | 8.21 | 1,133.04 |
+| `dd̄→Zg` | 1,634.12 | 1,217.59 | 6.60 | 1,224.19 |
 
 ### 2.4 Independent consistency check
 
@@ -143,7 +143,7 @@ with the difference inside the quoted uncertainty.
 
 1. **Hybrid tail.** The current NF is CM-cut, so the 88.71 pb tail is measured
    from native events, not sampled by the NF. A pure lab-frame NF requires
-   retraining without the CM eta cut, or a flow that includes the boost \(Y\).
+   retraining without the CM eta cut, or a flow that includes the boost `Y`.
 2. **NF acceptance accuracy.** The per-channel NF acceptance differs from the
    native CM-cut acceptance by 1–2.5% at individual energies; the weighted
    total is consistent to 0.14%. The quoted 5.9 pb NF-acceptance model error

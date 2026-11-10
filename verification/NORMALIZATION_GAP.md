@@ -26,19 +26,19 @@ but the C wrapper calls LHAPDF's `PDF::xfxQ(id, x, q)`, which takes **q in
 GeV** and squares it internally. Passing `q2 = 91.188 ** 2 = 8315.25`
 therefore evaluated the PDFs at
 
-\[
-Q = 8315.25\ \text{GeV},\qquad Q^2 = 6.91\times10^7\ \text{GeV}^2,
-\]
+```text
+Q = 8315.25 GeV, Q^2 = 6.91×10^7 GeV^2,
+```
 
-not at \(Q=M_Z=91.188\) GeV. Native MadEvent sets
-`q2fact(1) = q2fact(2) = 91.188²` and its `pdg2pdf` passes \(Q=91.188\), so
+not at `Q=M_Z=91.188` GeV. Native MadEvent sets
+`q2fact(1) = q2fact(2) = 91.188²` and its `pdg2pdf` passes `Q=91.188`, so
 the native PDF was correct.
 
 The effect is a DGLAP tilt:
 
-- low \(x\) (low \(\sqrt{\hat s}\)): sea quarks and gluons inflated by
+- low `x` (low `√ŝ`): sea quarks and gluons inflated by
   15–35% → partonic convolution too high;
-- high \(x\) (high \(\sqrt{\hat s}\)): valence/gluon PDFs depleted by
+- high `x` (high `√ŝ`): valence/gluon PDFs depleted by
   25–30% → partonic convolution too low.
 
 That is exactly the observed differential tilt: native/partonic 0.791 at
@@ -71,14 +71,14 @@ def xfxQ2(self, pid, x, q2):    # q2 in GeV^2
 Threshold contribution 113.3555–114: **33.84 pb** (was 45.46 pb with the wrong
 PDF scale).
 
-### Lab frame, \(|\\eta|<2.5\)
+### Lab frame, `∣η∣<2.5`
 
 | quantity | corrected (pb) | native (pb) | ratio |
 |---|---:|---:|---:|
 | 114–2000, single stored acceptance | **9,113.31** | — | — |
 | single acceptance + threshold | **9,137.90** | 9,142.3 ± 6.8 | 0.99952 |
 | per-channel acceptance + threshold | **9,142.25** | 9,142.3 ± 6.8 | 0.99999 |
-| effective \(f_{\rm lab}\) (event-level / weighted) | 0.7666 / 0.7673 | 0.7674 | — |
+| effective `f_lab` (event-level / weighted) | 0.7666 / 0.7673 | 0.7674 | — |
 
 The channel-dependent correction is now **+4.35 ± 4.24 pb** (0.048%), not
 −31 pb; the method spread is ±5–10 pb. The partonic channel mix now matches
@@ -86,14 +86,14 @@ the native event sample:
 
 | channel | native % | partonic % |
 |---|---:|---:|
-| \(gu\) | 27.31 | 27.26 |
-| \(gd\) | 23.45 | 23.53 |
-| \(g\bar u\) | 8.52 | 8.49 |
-| \(g\bar d\) | 12.41 | 12.54 |
-| \(u\bar u\) | 14.38 | 14.31 |
-| \(d\bar d\) | 13.94 | 13.88 |
+| `gu` | 27.31 | 27.26 |
+| `gd` | 23.45 | 23.53 |
+| `gū` | 8.52 | 8.49 |
+| `gd̄` | 12.41 | 12.54 |
+| `uū` | 14.38 | 14.31 |
+| `dd̄` | 13.94 | 13.88 |
 
-### CM frame, \(|\\eta_{\rm CM}|<2.5\)
+### CM frame, `∣η_CM∣<2.5`
 
 | quantity | corrected (pb) |
 |---|---:|
@@ -123,7 +123,7 @@ full-range totals agree to 0.01%.
 Using `verification/channel_integrands.csv` (recomputed with `xfxQ2`) and the
 native event sample:
 
-| \(\sqrt{\hat s}\) bin | old native/partonic | corrected native/partonic |
+| `√ŝ` bin | old native/partonic | corrected native/partonic |
 |---|---:|---:|
 | 114–150 | 0.791 | **1.006** |
 | 150–200 | 0.877 | **1.014** |
@@ -139,17 +139,17 @@ Cumulative per channel (native/partonic):
 
 | channel | corrected ratio |
 |---|---:|
-| \(gu\to Zu\) | 1.0029 |
-| \(gd\to Zd\) | 0.9876 |
-| \(g\bar u\to Z\bar u\) | 0.9904 |
-| \(g\bar d\to Z\bar d\) | 1.0149 |
-| \(u\bar u\to Zg\) | 1.0072 |
-| \(d\bar d\to Zg\) | 0.9998 |
+| `gu→Zu` | 1.0029 |
+| `gd→Zd` | 0.9876 |
+| `gū→Zū` | 0.9904 |
+| `gd̄→Zd̄` | 1.0149 |
+| `uū→Zg` | 1.0072 |
+| `dd̄→Zg` | 0.9998 |
 | **total** | **0.9999** |
-| \(gq\) group | 0.9985 |
-| \(q\bar q\) group | 1.0035 |
+| `gq` group | 0.9985 |
+| `qq̄` group | 1.0035 |
 
-The old \(q\bar q\) deficit (0.741) was entirely the PDF scale bug.
+The old `qq̄` deficit (0.741) was entirely the PDF scale bug.
 
 ---
 
@@ -161,8 +161,8 @@ The native side was audited and found correct:
   `dsqrt_q2fact1/2=91.188`; `setrun.f` sets `q2fact=sf²`, and `cuts.f` does
   not call `set_fac_scale` when both fixed flags are true.
 - **Couplings:** LHE event headers show SCALUP=91.188, AQEDUP=0.00754677,
-  AQCDUP=0.130; param cards agree on \(M_Z\), \(\Gamma_Z\), \(a_{\rm EW}^{-1}\),
-  \(G_F\).
+  AQCDUP=0.130; param cards agree on `M_Z`, `Γ_Z`, `a_EW^-1`,
+  `G_F`.
 - **PDF:** external LHAPDF 247000 and internal `nn23lo1` give the same native
   window and full totals (5,372 pb for 114–150; 11,914 pb full). The problem was
   our convolution's Q/Q² argument, not the native PDF.
