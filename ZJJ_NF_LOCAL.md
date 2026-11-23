@@ -1,5 +1,9 @@
 # Z + 2 jets NF — local run log (2026-11-16)
 
+> **Final results:** see [`ZJJ_NF_RESULTS.md`](ZJJ_NF_RESULTS.md) for the
+> consolidated tables, figures and caveats.  This file is the chronological
+> campaign log.
+
 Full `pp -> Z j j` with conditional NFs, run on the local Windows RTX 3060 as a
 backup for the orthus/odyssey run. Profile: **balanced** (user choice); analysis
 follows the Z+1 jet treatment (`FINDINGS.md`).
@@ -133,6 +137,203 @@ bit-identical to the serial path on Windows by `scripts/test_me_workers.py`
 (max difference 0.0 on the finite points), so the remaining trainings can use
 it to cut the per-step matrix-element time.
 
+### Pilot complete (2026-11-16 09:41)
+
+Wall time 7 h 01 min (02:40-09:41). Checkpoint
+`results/gg_zjj_copula_balanced_gpu/madgraph_gg_zjj_5_final_model.pt`,
+summary ESS **0.6087**, `std_logw` **0.6608** (finite), 10 edges,
+graph `0 <- 1 <- 2 <- 3 <- 4`. Round 0 converged at step 5200; round 1 ran
+to completion.
+
+200k NF-vs-uniform validation
+(`results/gg_zjj_validation_balanced_gpu`):
+
+| E [GeV] | NF [pb] | exact [pb] | pull vs exact | ESS | variance reduction |
+|---:|---:|---:|---:|---:|---:|
+| 250 | 0.352816 +/- 0.00046 | 0.35292 | -0.19 | 0.745 | 7.9x |
+| 400 | 0.440505 +/- 0.00052 | 0.44187 | -2.13 | 0.782 | 20.5x |
+| 650 | 0.304542 +/- 0.00036 | 0.30455 | -0.02 | 0.786 | 26.0x |
+| 1000 | 0.187917 +/- 0.00019 | 0.18813 | -0.97 | 0.827 | 36.7x |
+| 1500 | 0.113099 +/- 0.00011 | 0.11323 | -1.01 | 0.833 | 52.6x |
+| 1950 | 0.079984 +/- 0.000085 | 0.080004 | -0.21 | 0.814 | 50.7x |
+
+NF vs uniform-MC pulls are within +/-1.75 sigma; ESS improvement over uniform
+2.75x-10.3x. NF vs exact agrees at 0.03-0.31% (worst pull 2.1 sigma at 400).
+
+First hadronic integration of the channel (partonic CM, 40+60 grid,
+100k evals/point): **90.739 +/- 0.028 pb** over [200,2000] + 0.042 pb tail.
+An exact-convolution cross-check with the original six scan points gave
+93.4 pb, biased by flat extrapolation below 250 GeV. Adding exact points at
+200, 220, 240, 300 and 350 GeV gives **90.719 pb** - agreement with the NF at
+**0.02%**. At those low points the NF and exact partonic values agree to
+0.4-0.5% (ratios 0.9958, 1.0039, 0.9985, 0.9953, 1.0000).
+
+The native up-type `gg` reference from the event sample is
+**89.25 +/- 0.63 pb** (CM, >200 GeV), 2.4 sigma below both; it is attributed
+to the event-sample statistics and the MG5 `nn23lo1` vs LHAPDF sampling.
+
+Lab-frame integration with the per-group acceptance (same grid,
+100k evals/point): **64.258 +/- 0.021 pb** ([200,2000] 64.222 + 0.036 tail).
+The native up lab reference is 63.2 pb - the same +1.7% offset as in the CM,
+so the frame conversion is consistent and the offset lives in the native
+event-based sample, not in the method.
+
+Balanced-model transfers (ESS at 250/650/1950 GeV, source in parentheses):
+
+| target | source | ESS |
+|---|---|---|
+| `gg_zddbar` | `gg_zjj` | 0.738 / 0.814 / 0.821 (up channel: 0.745 / 0.786 / 0.814) |
+| `gd_zgd` | `gu_zug` | 0.748 / 0.842 / 0.842 (up channel: 0.780 / 0.823 / 0.828) |
+| `gux_zgux` | `gu_zug` | 0.783 / 0.841 / 0.836 |
+| `gdx_zgdx` | `gu_zug` | 0.774 / 0.837 / 0.840 |
+
+No ESS loss anywhere, so one model per topology covers both Z couplings and
+all charge states: `gg` (up covers down) and `gq` (u covers d, u~, d~).  The
+hadronic config points `gg_zddbar` at `gg_zjj` and the three gq variants at
+`gu_zug`.
+
+Pilot summary: CM 90.739 +/- 0.028 pb (exact convolution 90.719, 0.02%),
+lab 64.258 +/- 0.021 pb.
+
+### Exact convolution references for the four representatives
+
+`scripts/zjj_exact_convolution.py` merges the six high-energy points with the
+five low-energy points (200/220/240/300/350 GeV), interpolates log-log with
+PCHIP, and applies the channel's luminosity and group acceptance.  Over
+[200, 2000] GeV, no tail:
+
+| channel | CM [pb] | lab [pb] |
+|---|---:|---:|
+| `gg_zjj` | 90.677 | 64.206 |
+| `gu_zug` | 1180.775 | 917.938 |
+| `qqbar_zgg` | 122.735 | 78.704 |
+| `uu_zuu` | 39.145 | 28.619 |
+
+The NF result for `gg_zjj` (90.739 CM, 64.258 lab) agrees with the exact row
+at 0.07% / 0.08%.  These are the per-channel references for the three models
+still training.
+
+### `gu_zug` complete (2026-11-16 15:25)
+
+Wall time 5 h 22 min (10:03-15:25) with `--me-workers 6`.  ESS **0.7469**,
+`std_logw` **0.5228**, 10 edges.  200k validation
+(`results/gu_zug_validation_balanced_gpu`):
+
+| E [GeV] | NF [pb] | exact [pb] | pull vs exact | ESS | variance reduction |
+|---:|---:|---:|---:|---:|---:|
+| 250 | 9.31796 +/- 0.011 | 9.3325 | -1.21 | 0.780 | 36x |
+| 400 | 13.3581 +/- 0.015 | 13.353 | +0.30 | 0.793 | 165x |
+| 650 | 11.3714 +/- 0.012 | 11.353 | +1.20 | 0.823 | 370x |
+| 1000 | 8.40155 +/- 0.0079 | 8.4021 | -0.06 | 0.848 | 760x |
+| 1500 | 5.91608 +/- 0.0057 | 5.907 | +1.10 | 0.844 | 2366x |
+| 1950 | 4.59561 +/- 0.0047 | 4.587 | +0.97 | 0.828 | 1275x |
+
+All pulls within 1.3 sigma; NF vs exact agrees at 0.007-0.19%.  The uniform
+Monte Carlo is very inefficient for this channel (ESS down to 0.0026), hence
+the variance reductions up to 2366x.
+
+Hadronic integration (40+60 grid, 100k evals/point):
+**CM 1182.389 +/- 0.429 pb** vs exact **1180.775 pb**, ratio **1.0014**;
+**lab 919.200 +/- 0.425 pb** vs exact **917.938 pb**, ratio **1.0014**.
+The same +0.14% in both frames confirms the acceptance conversion and the
+NF/PDF normalization.
+
+`qqbar_zgg` started at 15:25 with the same settings.
+
+### `qqbar_zgg` complete (2026-11-16 20:12)
+
+Wall time 4 h 47 min.  ESS **0.4103**, `std_logw` **0.9044** - the hardest
+channel so far (the `qq~ -> Zgg` integrand is broader than `gq`).  200k
+validation (`results/qqbar_zgg_validation_balanced_gpu`):
+
+| E [GeV] | NF [pb] | exact [pb] | pull vs exact | ESS | variance reduction |
+|---:|---:|---:|---:|---:|---:|
+| 250 | 24.1100 +/- 0.038 | 24.095 | +0.35 | 0.668 | 10.6x |
+| 400 | 18.8044 +/- 0.027 | 18.836 | -0.83 | 0.701 | 37.1x |
+| 650 | 10.6227 +/- 0.016 | 10.593 | +1.51 | 0.701 | 81.2x |
+| 1000 | 5.86201 +/- 0.0089 | 5.8589 | +0.32 | 0.684 | 130x |
+| 1500 | 3.21683 +/- 0.0048 | 3.2107 | +1.21 | 0.689 | 274x |
+| 1950 | 2.14171 +/- 0.0034 | 2.1408 | +0.25 | 0.668 | 211x |
+
+NF vs exact agrees at 0.04-0.28% (all pulls <=1.6 sigma).  The down-type
+`ddbar_zgg` channel shares this checkpoint with no ESS loss (0.682 / 0.692 /
+0.662 at 250/650/1950 vs 0.668 / 0.701 / 0.668 on the trained channel);
+`ddbar_zgg` now points at `qqbar_zgg`.  Hadronic integration:
+**CM 122.948 +/- 0.042 pb** vs exact 122.735 (ratio 1.0017);
+**lab 78.838 +/- 0.030 pb** vs exact 78.704 (ratio 1.0017).  The same +0.17%
+in both frames.
+
+`uu_zuu`, the last of the four core models, started at 20:12.
+
+### `uu_zuu` complete (2026-11-17 01:43)
+
+Wall time 5 h 31 min.  ESS **0.7709**, `std_logw` **0.5150** - the best of the
+four.  200k validation (`results/uu_zuu_validation_balanced_gpu`):
+
+| E [GeV] | NF [pb] | exact [pb] | pull vs exact | ESS | variance reduction |
+|---:|---:|---:|---:|---:|---:|
+| 250 | 3.07299 +/- 0.0039 | 3.0775 | -1.08 | 0.758 | 36x |
+| 400 | 6.32663 +/- 0.0076 | 6.3217 | +0.54 | 0.777 | 117x |
+| 650 | 6.37823 +/- 0.0068 | 6.3777 | +0.07 | 0.814 | 305x |
+| 1000 | 5.23617 +/- 0.0051 | 5.246 | -1.18 | 0.838 | 439x |
+| 1500 | 3.97199 +/- 0.0039 | 3.9693 | +0.54 | 0.840 | 714x |
+| 1950 | 3.19638 +/- 0.0033 | 3.2002 | -0.63 | 0.825 | 662x |
+
+NF vs exact agrees at 0.008-0.19% (all pulls within 1.2 sigma).  Hadronic CM:
+**39.367 +/- 0.009 pb** vs exact 39.145 (ratio 1.0057, a little higher than the
+other channels but within the exact scan's interpolation uncertainty).  The
+lab value is taken from the full integration below.
+
+### ESS sweep and the 28-channel model map (2026-11-17)
+
+The four-candidate sweep (`scripts/zjj_ess_sweep.py`, 250/650/1950 GeV,
+20k evaluations) over the 20 `P1_qq_zqq` channels gives:
+
+- `uu_zuu` for 16 channels: same-flavor 0.79-0.81, different-flavor 0.43-0.49;
+- `qqbar_zgg` for the four annihilation-to-different-flavor channels
+  (`uux_zccx`, `uux_zddx`, `ddx_zuux`, `ddx_zssx`), ESS 0.37-0.45.
+
+The full map (28 channels -> 4 models): `gg_zjj` 2, `gu_zug` 4,
+`qqbar_zgg` 6, `uu_zuu` 16.  Every channel now points at an existing
+checkpoint in `configs/processes/zjj_hadronic.json`; no further training is
+needed for the full `pp -> Zjj` integration.
+
+### Full pp -> Zjj integration and the multiplicity bug
+
+First full run (`results/zjj_hadronic_integral_full`): lab [200,2000]
+**2820.80 +/- 0.66 pb** vs native **2815.82 +/- 8.17** (ratio 1.00177,
+pull 0.61); CM **3771.55** vs **3766.84 +/- 9.46** (ratio 1.00125).
+Group totals: gq 2184.2, qq_zqq 339.3, qq_zgg 150.4, gg 146.9 pb.
+
+A per-channel comparison against the native event sample (classified by
+initial and final PDG pair) showed `uux_zddx` and `ddx_zuux` at **half** the
+native rate (ratios 0.49 and 0.51).  Cause: matrix10 and matrix15 each
+contain two *final* flavour options (d/s and u/c respectively) with identical
+amplitudes, while the config counted only the initial flavour pair.  This
+explained almost the whole qq_zqq group deficit (491.05 vs 502.50 pb CM).
+
+Fixed: `multiplicity = 2` for `uux_zddx` and `ddx_zuux`, both in
+`zjj_hadronic.json` and in `make_zjj_hadronic_config.py` so a regeneration
+keeps it.
+
+Rerun (`results/zjj_hadronic_integral_full_v2`):
+
+| comparison | NF | native | ratio |
+|---|---:|---:|---:|
+| lab [200,2000] | **2826.21 +/- 0.66 pb** | 2815.82 +/- 8.17 | **1.00369** (pull 1.27) |
+| lab + tail | 2834.99 +/- 0.85 pb | 2824.59 | 1.00369 |
+| CM [200,2000] | **3779.99 pb** | 3766.84 +/- 9.46 | **1.00349** |
+
+Group totals: gq 2184.2 (77.3%), qq_zqq 344.8 (12.2%), qq_zgg 150.4 (5.3%),
+gg 146.9 (5.2%) pb.  The four groups now agree with the native sample within
+-0.8% (qq_zqq) to +0.6% (gq); the uniform +0.35% total offset is consistent
+with the native sample's MG5 `nn23lo1` vs LHAPDF sampling and its ~0.3%
+statistics.
+
+`gu_zug` (the 76.7% group) started immediately after the pilot with
+`--me-workers 6`. The lab-frame pilot integration and the low-energy exact
+scan were running concurrently.
+
 ## Native references
 
 - Fixed-scale lab total (existing): **3311.7 +/- 3.75 pb**, scale 91.188,
@@ -200,3 +401,26 @@ cd "$REPO/generated/gg_zjj_standalone"
 The same command can be run with `--tail-pb 0 --tail-error-pb 0` and
 `--acceptance-dir` omitted to get the raw partonic-CM integral (target
 3766.8 +/- 10.2 pb above 200 GeV).
+
+## 2026-11-19: three-method comparison and window fix
+
+`scripts/zjj_three_methods.py` decomposes the native no-eta sample into the
+28 channels and writes `results/zjj_three_methods/` (`channel_table.csv`,
+`summary.json`) plus the five report figures.
+
+The native reference quoted above needs a window correction: 2815.8 pb is
+`sqrt(s_hat) > 200 GeV` and already contains the 8.77 pb tail above
+2000 GeV, so the like-for-like [200, 2000] native value is
+**2807.04 +/- 8.15 pb** (lab) and **3758.93 +/- 9.44 pb** (CM).  The
+corrected ratios are NF/native = **1.00683** (lab, pull 2.34) and
+**1.00560** (CM, pull 2.22); the full-range comparison (2834.99 vs
+2815.82 pb lab) is unchanged.  The `qq_zqq` group is +0.37% rather than
+0.8% low once the same window is used.
+
+The threshold wedge is also event-based now: **486.2 +/- 3.1 pb** in
+132--200 GeV (lab), not the earlier ~496 pb.  The old number came from
+subtracting the event-sample >200 window (2815.8) from the official full
+cross section (3311.7), mixing two normalisations.  The event-sample full
+sum is **3302.0 +/- 8.7 pb**, and the official 3311.7 +/- 3.75 pb is 0.29%
+above it, within the sample statistics.  The full-range ratio is unchanged
+at +0.58% (3321.2 / 3302.0).
